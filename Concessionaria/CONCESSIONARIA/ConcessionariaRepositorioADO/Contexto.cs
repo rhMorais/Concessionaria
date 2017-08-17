@@ -30,23 +30,23 @@ namespace ConcessionariaRepositorioADO
                 CommandType = CommandType.StoredProcedure,
                 Connection = minhaConexao
             };
-        }
-
-        //public void ExecutaComando(string query)
-        //{
-        //    var cmdComando = new SqlCommand
-        //    {
-        //        CommandText = query,
-        //        CommandType = CommandType.Text,
-        //        Connection = minhaConexao
-        //    };
-        //    cmdComando.ExecuteNonQuery();
-        //}
-
-        //public SqlDataReader ExecutaComandoComRetorno(string query)
-        //{
-        //    var cmdComando = new SqlCommand(query, minhaConexao);
-        //    return cmdComando.ExecuteReader();
-        //}
+        }        
     }
 }
+
+//public void ExecutaComando(string query)
+//{
+//    var cmdComando = new SqlCommand
+//    {
+//        CommandText = query,
+//        CommandType = CommandType.Text,
+//        Connection = minhaConexao
+//    };
+//    cmdComando.ExecuteNonQuery();
+//}
+
+//public SqlDataReader ExecutaComandoComRetorno(string query)
+//{
+//    var cmdComando = new SqlCommand(query, minhaConexao);
+//    return cmdComando.ExecuteReader();
+//}
