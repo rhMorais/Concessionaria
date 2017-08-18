@@ -196,7 +196,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OpcionalController.cs" />
     <Compile Include="Global.asax.cs">
@@ -270,6 +272,17 @@
     <Content Include="Views\Opcional\Cadastrar.cshtml" />
     <Content Include="Views\Opcional\Editar.cshtml" />
     <Content Include="Views\Opcional\Detalhes.cshtml" />
+    <Content Include="Views\Opcional\Excluir.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Cadastrar.cshtml" />
+    <Content Include="Views\Login\Editar.cshtml" />
+    <Content Include="Views\Login\Detalhes.cshtml" />
+    <Content Include="Views\Login\Excluir.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\Cliente\Cadastrar.cshtml" />
+    <Content Include="Views\Cliente\Editar.cshtml" />
+    <Content Include="Views\Cliente\Detalhes.cshtml" />
+    <Content Include="Views\Cliente\Excluir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

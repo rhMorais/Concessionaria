@@ -69,12 +69,14 @@ namespace Concessionaria.Repositorio
                 var logins = new List<Login>();
                 using (var reader = cmd.ExecuteReader())
                     if (reader.Read())
-                        while (reader.Read())
+                        do
+                        {
                             logins.Add(new Login
                             {
                                 Logusuar = reader.ReadAsString("LOGUSUAR"),
                                 Logsenha = reader.ReadAsString("LOGSENHA")
                             });
+                        } while (reader.Read());
                 return logins;
             }
         }

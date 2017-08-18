@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Concessionaria.Dominio.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar", "Cadastrar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nome:
+        </th>
+        <th>
+            CPF:
+        </th>
+        <th>
+            Data de Nascimento:
+        </th>
+        <th>
+            Endereço:
+        </th>
+        <th>
+            Cidade:
+        </th>
+        <th>
+            Telefone:
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clinome)            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clicpf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clidatan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clicidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clitelef)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Clicpf }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new {  id=item.Clicpf }) |
+            @Html.ActionLink("Excluir", "Excluir", new {  id=item.Clicpf })
+        </td>
+    </tr>
+}
+
+</table>

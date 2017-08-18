@@ -5,19 +5,19 @@ using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
 {
-    public class OpcionalController : Controller
+    public class ClienteController : Controller
     {
-        private OpcinalAplicacao appOpcional;
-    
-        public OpcionalController()
+        private ClienteAplicacao appCliente;
+
+        public ClienteController()
         {
-            appOpcional = OpcionalAplicacaoConstrutor.OpcionalAplicacao();
+            appCliente = ClienteAplicacaoConstrutor.ClienteAplicacao();
         }
 
         public ActionResult Index()
         {
-            var listadeOpcionais = appOpcional.ListarTodos();
-            return View(listadeOpcionais);
+            var listadeClientes = appCliente.ListarTodos();
+            return View(listadeClientes);
         }
 
         public ActionResult Cadastrar()
@@ -27,64 +27,64 @@ namespace CONCESSIONARIA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public ActionResult Cadastrar(Opcional opcional)
+        public ActionResult Cadastrar(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                appOpcional.Salvar(opcional);
+                appCliente.Salvar(cliente);
                 return RedirectToAction("Index");
             }
-            return View(opcional);
+            return View(cliente);
         }
 
         public ActionResult Editar(string id)
         {
-            var opcional = appOpcional.ListarPorId(id);
-            if(opcional == null)
+            var cliente = appCliente.ListarPorId(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(opcional);
+            return View(cliente);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(Opcional opcional)
+        public ActionResult Editar(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                appOpcional.Salvar(opcional);
+                appCliente.Salvar(cliente);
                 return RedirectToAction("Index");
             }
-            return View(opcional);
+            return View(cliente);
         }
 
         public ActionResult Detalhes(string id)
         {
-            var opcional = appOpcional.ListarPorId(id);
-            if (opcional == null)
+            var cliente = appCliente.ListarPorId(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(opcional);
+            return View(cliente);
         }
 
-        public ActionResult Excluir (string id)
+        public ActionResult Excluir(string id)
         {
-            var opcional = appOpcional.ListarPorId(id);
-            if(opcional == null)
+            var cliente = appCliente.ListarPorId(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(opcional);
+            return View(cliente);
         }
 
         [HttpPost, ActionName("Excluir")]
         [ValidateAntiForgeryToken]
         public ActionResult ExcluirConfirmados(string id)
         {
-            var opcional = appOpcional.ListarPorId(id);
-            appOpcional.Excluir(opcional);
+            var cliente = appCliente.ListarPorId(id);
+            appCliente.Excluir(cliente);
             return RedirectToAction("Index");
         }
     }

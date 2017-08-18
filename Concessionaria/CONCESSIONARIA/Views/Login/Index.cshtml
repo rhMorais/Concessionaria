@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Concessionaria.Dominio.Login>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index Login</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar", "Cadastrar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Usuário
+        </th>
+        <th>
+            Senha
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Logusuar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Logsenha)
+        </td>
+        <td>
+            @Html.ActionLink("Editar senha", "Editar", new { id=item.Logusuar}) |
+            @Html.ActionLink("Detalhes", "Detalhes", new {  id=item.Logusuar }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.Logusuar })
+        </td>
+    </tr>
+}
+
+</table>

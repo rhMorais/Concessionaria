@@ -1,0 +1,39 @@
+﻿@model Concessionaria.Dominio.Opcional
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Excluir Opcional</h2>
+
+<div>
+    <h4>Tem certeza que deseja excluir este Opcional?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID Opcional:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opcid)
+        </dd>
+        <br />
+        <dt>
+            Descrição:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opcdescr)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

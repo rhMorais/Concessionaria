@@ -5,19 +5,19 @@ using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
 {
-    public class OpcionalController : Controller
+    public class LoginController : Controller
     {
-        private OpcinalAplicacao appOpcional;
-    
-        public OpcionalController()
+        private LoginAplicacao appLogin;
+
+        public LoginController()
         {
-            appOpcional = OpcionalAplicacaoConstrutor.OpcionalAplicacao();
+            appLogin = LoginAplicacaoConstrutor.LoginAplicacao();
         }
 
         public ActionResult Index()
         {
-            var listadeOpcionais = appOpcional.ListarTodos();
-            return View(listadeOpcionais);
+            var listadeLogins = appLogin.ListarTodos();
+            return View(listadeLogins);
         }
 
         public ActionResult Cadastrar()
@@ -27,64 +27,64 @@ namespace CONCESSIONARIA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public ActionResult Cadastrar(Opcional opcional)
+        public ActionResult Cadastrar(Login login)
         {
             if (ModelState.IsValid)
             {
-                appOpcional.Salvar(opcional);
+                appLogin.Salvar(login);
                 return RedirectToAction("Index");
             }
-            return View(opcional);
+            return View(login);
         }
 
         public ActionResult Editar(string id)
         {
-            var opcional = appOpcional.ListarPorId(id);
-            if(opcional == null)
+            var login = appLogin.ListarPorId(id);
+            if (login == null)
             {
                 return HttpNotFound();
             }
-            return View(opcional);
+            return View(login);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(Opcional opcional)
+        public ActionResult Editar(Login login)
         {
             if (ModelState.IsValid)
             {
-                appOpcional.Salvar(opcional);
+                appLogin.Salvar(login);
                 return RedirectToAction("Index");
             }
-            return View(opcional);
+            return View(login);
         }
 
         public ActionResult Detalhes(string id)
         {
-            var opcional = appOpcional.ListarPorId(id);
-            if (opcional == null)
+            var login = appLogin.ListarPorId(id);
+            if (login == null)
             {
                 return HttpNotFound();
             }
-            return View(opcional);
+            return View(login);
         }
 
-        public ActionResult Excluir (string id)
+        public ActionResult Excluir(string id)
         {
-            var opcional = appOpcional.ListarPorId(id);
-            if(opcional == null)
+            var login = appLogin.ListarPorId(id);
+            if (login == null)
             {
                 return HttpNotFound();
             }
-            return View(opcional);
+            return View(login);
         }
 
         [HttpPost, ActionName("Excluir")]
         [ValidateAntiForgeryToken]
         public ActionResult ExcluirConfirmados(string id)
         {
-            var opcional = appOpcional.ListarPorId(id);
-            appOpcional.Excluir(opcional);
+            var login = appLogin.ListarPorId(id);
+            appLogin.Excluir(login);
             return RedirectToAction("Index");
         }
     }

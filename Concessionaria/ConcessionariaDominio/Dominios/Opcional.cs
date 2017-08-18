@@ -6,7 +6,7 @@ namespace Concessionaria.Dominio
     {
         public int Opcid { get; set; }
 
-        [Required(ErrorMessage = "Preencha a descricao")]
+        [Required(ErrorMessage = "Preencha a descrição")]
         public string Opcdescr { get; set; }
     }
 }

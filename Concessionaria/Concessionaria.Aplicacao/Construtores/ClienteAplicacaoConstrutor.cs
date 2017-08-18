@@ -4,7 +4,7 @@ namespace Concessionaria.Aplicacao.Construtores
 {
     public class ClienteAplicacaoConstrutor
     {
-        public static ClienteAplicacao CLienteAplicacaoADO()
+        public static ClienteAplicacao ClienteAplicacao()
         {
             return new ClienteAplicacao(new ClienteRepositorioADO());
         }

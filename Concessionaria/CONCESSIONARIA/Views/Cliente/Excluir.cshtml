@@ -1,0 +1,72 @@
+﻿@model Concessionaria.Dominio.Cliente
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Excluir Cliente</h2>
+
+<h3>Tem certeza que deseja excluir o cliente?</h3>
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            Nome:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clinome)
+        </dd>
+
+        <dt>
+            CPF:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clicpf)
+        </dd>
+
+        <dt>
+            Data de Nascimento:
+        </dt>
+
+        <dd>
+            <date-util format="dd/MM/yyyy">@Html.DisplayFor(model => model.Clidatan)</date-util>
+        </dd>        
+
+        <dt>
+            Endereço:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliender)
+        </dd>
+
+        <dt>
+            Cidade:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clicidad)
+        </dd>
+
+        <dt>
+            Telefone:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clitelef)
+        </dd>        
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

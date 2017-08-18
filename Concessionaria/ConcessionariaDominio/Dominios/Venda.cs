@@ -15,7 +15,7 @@ namespace Concessionaria.Dominio
 
         public decimal? Venvalor { get; set; }
 
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
+        [DataType(DataType.Date)]
         public DateTime? Vendatav { get; set; }
     }
 }

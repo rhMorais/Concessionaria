@@ -1,0 +1,39 @@
+﻿@model Concessionaria.Dominio.Login
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Excluir Login</h2>
+
+<h3>Tem certeza que deseja excluir este Login?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome de Usuário:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logusuar)
+        </dd>
+        <br />
+        <dt>
+            Senha:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logsenha)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

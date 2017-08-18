@@ -1,0 +1,66 @@
+﻿@model Concessionaria.Dominio.Cliente
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clinome)
+        </dd>
+        <br/>
+        <dt>
+            CPF:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clicpf)
+        </dd>
+        <br />
+        <dt>
+            Data de Nascimento:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clidatan)
+        </dd>
+        <br />
+        <dt>
+            Endereço:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliender)
+        </dd>
+        <br />
+        <dt>
+            Cidade:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clicidad)
+        </dd>
+        <br />
+        <dt>
+            Telefone:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clitelef)
+        </dd>
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new {  id = Model.Clicpf }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

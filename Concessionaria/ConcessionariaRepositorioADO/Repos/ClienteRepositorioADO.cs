@@ -31,9 +31,9 @@ namespace Concessionaria.Repositorio
                 var cmd = contexto.ExecutaProcedure("EDITAR_CLIENTE");
                 cmd.Parameters.AddWithValue("@CPF", cliente.Clicpf);
                 cmd.Parameters.AddWithValue("@NOME", cliente.Clinome);
-                cmd.Parameters.AddWithValue("@ENDERECO", cliente.Cliender);
+                cmd.Parameters.AddWithValue("@ENDER", cliente.Cliender);
                 cmd.Parameters.AddWithValue("@TELEFONE", cliente.Clitelef);
-                cmd.Parameters.AddWithValue("@DATANASC", cliente.Clidatan);
+                cmd.Parameters.AddWithValue("@DATA", cliente.Clidatan);
                 cmd.Parameters.AddWithValue("@CIDADE", cliente.Clicidad);
                 cmd.ExecuteNonQuery();
             }
@@ -80,7 +80,8 @@ namespace Concessionaria.Repositorio
                 var clientes = new List<Cliente>();
                 using (var reader = cmd.ExecuteReader())
                     if (reader.Read())
-                        while (reader.Read())
+                        do
+                        {
                             clientes.Add(new Cliente
                             {
                                 Clicpf = reader.ReadAsString("CLICPF"),
@@ -90,6 +91,7 @@ namespace Concessionaria.Repositorio
                                 Clinome = reader.ReadAsString("CLINOME"),
                                 Clitelef = reader.ReadAsStringNull("CLITELEF")
                             });
+                        } while (reader.Read());
                 return clientes;
             }
         }

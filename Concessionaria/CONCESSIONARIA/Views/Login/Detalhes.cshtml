@@ -1,0 +1,33 @@
+﻿@model Concessionaria.Dominio.Login
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes Login</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome de Usuário:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logusuar)
+        </dd>
+        <br />
+        <dt>
+            Senha:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logsenha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Logusuar }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

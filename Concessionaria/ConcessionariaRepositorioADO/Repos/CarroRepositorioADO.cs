@@ -82,7 +82,8 @@ namespace Concessionaria.Repositorio
                 var carros = new List<Carro>();
                 using (var reader = cmd.ExecuteReader())
                     if (reader.Read())
-                        while (reader.Read())
+                        do
+                        {
                             carros.Add(new Carro
                             {
                                 Carano = reader.ReadAsString("CARANO"),
@@ -93,6 +94,7 @@ namespace Concessionaria.Repositorio
                                 Carmodel = reader.ReadAsString("CARMODEL"),
                                 Cartipo = reader.ReadAsStringNull("CARTIPO")
                             });
+                        } while (reader.Read());
                 return carros;
             }
         }

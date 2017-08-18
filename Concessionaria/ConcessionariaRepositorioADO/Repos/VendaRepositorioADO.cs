@@ -69,7 +69,8 @@ namespace Concessionaria.Repositorio
                 var vendas = new List<Venda>();
                 using (var reader = cmd.ExecuteReader())
                     if (reader.Read())
-                        while (reader.Read())
+                        do
+                        {
                             vendas.Add(new Venda
                             {
                                 Vendatav = reader.ReadAsDateTimeNull("VENDATAV"),
@@ -84,6 +85,7 @@ namespace Concessionaria.Repositorio
                                     Carcor = reader.ReadAsString("CARCOR")
                                 }
                             });
+                        } while (reader.Read());
                 return vendas;
             }
         }

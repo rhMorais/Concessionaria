@@ -16,10 +16,11 @@ namespace Concessionaria.Dominio
 
         public string Clicidad { get; set; }
 
-        [DataType(DataType.PhoneNumber)]
+        [DataType(DataType.PhoneNumber)]        
         public string Clitelef { get; set; }
-
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
+        
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? Clidatan { get; set; }
 
     }

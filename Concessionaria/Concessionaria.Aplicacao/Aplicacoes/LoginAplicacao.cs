@@ -28,7 +28,7 @@ namespace Concessionaria.Aplicacao.Aplicacoes
             return repositorio.ListarTodos();
         }
 
-        public Login listarPorId(string usuario)
+        public Login ListarPorId(string usuario)
         {
             return repositorio.ListarPorId(usuario);
         }

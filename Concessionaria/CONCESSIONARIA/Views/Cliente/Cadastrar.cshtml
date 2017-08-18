@@ -1,0 +1,80 @@
+﻿@model Concessionaria.Dominio.Cliente
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar Cliente</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })        
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Clinome">Nome:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Clinome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Clinome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Clicpf">CPF:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Clicpf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Clicpf, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Clidatan">Data de Nascimento:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Clidatan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Clidatan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Cliender">Endereço:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cliender, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cliender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Clicidad">Cidade:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Clicidad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Clicidad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Clitelef">Telefone:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Clitelef, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Clitelef, "", new { @class = "text-danger" })
+            </div>
+        </div>     
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cadastrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -41,8 +41,8 @@ namespace Concessionaria.Repositorio
         {
             using (contexto = new Contexto())
             {
-                var cmd = contexto.ExecutaProcedure("DELETE_OPCIONAL");
-                cmd.Parameters.AddWithValue("@OPCID", opcional.Opcdescr);
+                var cmd = contexto.ExecutaProcedure("DELETAR_OPCIONAL");
+                cmd.Parameters.AddWithValue("@OPCID", opcional.Opcid);
                 cmd.ExecuteNonQuery();
             }
 
