@@ -1,0 +1,7 @@
+C:\Users\Rafael\Desktop\BaseGit\Concessionaria\ConcessionariaRepositorioADO\bin\Debug\ConcessionariaRepositorioADO.dll
+C:\Users\Rafael\Desktop\BaseGit\Concessionaria\ConcessionariaRepositorioADO\bin\Debug\ConcessionariaRepositorioADO.pdb
+C:\Users\Rafael\Desktop\BaseGit\Concessionaria\ConcessionariaRepositorioADO\bin\Debug\ConcessionariaDominio.dll
+C:\Users\Rafael\Desktop\BaseGit\Concessionaria\ConcessionariaRepositorioADO\bin\Debug\ConcessionariaDominio.pdb
+C:\Users\Rafael\Desktop\BaseGit\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\Concessionaria.Repositorio.csprojResolveAssemblyReference.cache
+C:\Users\Rafael\Desktop\BaseGit\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\ConcessionariaRepositorioADO.dll
+C:\Users\Rafael\Desktop\BaseGit\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\ConcessionariaRepositorioADO.pdb
