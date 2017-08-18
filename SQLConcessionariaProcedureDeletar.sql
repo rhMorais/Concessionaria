@@ -28,10 +28,10 @@ BEGIN
 	DELETE CLIENTE WHERE CLICPF = @CLICPF
 END
 --_____________________________________________________________________
-CREATE PROCEDURE DELETAR_VENDA
-@CLICPF VARCHAR(12), @CARID INT
+ALTER PROCEDURE DELETAR_VENDA
+@VENID INT
 AS
 BEGIN 
-	DELETE VENDA WHERE CLICPF = @CLICPF AND CARID = @CARID
+	DELETE VENDA WHERE VENID = @VENID
 END
 --_____________________________________________________________________

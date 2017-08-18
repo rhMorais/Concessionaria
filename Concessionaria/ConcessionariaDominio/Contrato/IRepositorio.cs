@@ -7,6 +7,6 @@ namespace Concessionaria.Dominio.Contrato
         void Salvar(T entidade);
         void Excluir(T entidade);
         IEnumerable<T> ListarTodos();
-        T ListarPorId(T entidade);
+        T ListarPorId(string id);
     }
 }

@@ -1,0 +1,33 @@
+﻿@model Concessionaria.Dominio.Opcional
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes do Opcional</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID Opcional:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opcid)
+        </dd>
+        <br />
+        <dt>
+            Descrição:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opcdescr)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new {  id = Model.Opcid  }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

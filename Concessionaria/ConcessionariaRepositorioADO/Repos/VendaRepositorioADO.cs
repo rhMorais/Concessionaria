@@ -1,5 +1,6 @@
 ﻿using Concessionaria.Dominio;
 using Concessionaria.Dominio.Contrato;
+using System;
 using System.Collections.Generic;
 
 namespace Concessionaria.Repositorio
@@ -26,25 +27,24 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("DELETAR_VENDA");
-                cmd.Parameters.AddWithValue("@CLICPF", venda.Cliente.Clicpf);
-                cmd.Parameters.AddWithValue("@CARID", venda.Carro.Carid);
+                cmd.Parameters.AddWithValue("@VENID", venda.Venid);                
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public Venda ListarPorId(Venda venda)
+        public Venda ListarPorId(string id)
         {
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("LISTAR_VENDA_ID");
-                cmd.Parameters.AddWithValue("@CLICPF", venda.Cliente.Clicpf);
-                cmd.Parameters.AddWithValue("@CARID", venda.Carro.Carid);
+                cmd.Parameters.AddWithValue("@VENID", Convert.ToInt32(id));                
 
                 var retornoVenda = new Venda();
                 using (var reader = cmd.ExecuteReader())                
                     if (reader.Read())
                         retornoVenda = new Venda
                         {
+                            Venid = reader.ReadAsInt("VENID"),
                             Vendatav = reader.ReadAsDateTimeNull("VENDATAV"),
                             Venvalor = reader.ReadAsDecimalNull("VENVALOR"),
                             Cliente = new Cliente

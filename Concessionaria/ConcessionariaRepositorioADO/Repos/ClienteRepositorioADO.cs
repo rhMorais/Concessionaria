@@ -49,12 +49,12 @@ namespace Concessionaria.Repositorio
             }
         }
 
-        public Cliente ListarPorId(Cliente cliente)
+        public Cliente ListarPorId(string cpf)
         {
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("LISTAR_CLIENTE_ID");
-                cmd.Parameters.AddWithValue("@CLICPF", cliente.Clicpf);
+                cmd.Parameters.AddWithValue("@CLICPF", cpf);
 
                 var retornoCliente = new Cliente();
                 using (var reader = cmd.ExecuteReader())

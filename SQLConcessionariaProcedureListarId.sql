@@ -31,11 +31,11 @@ BEGIN
 	WHERE CLICPF = @CLICPF
 END
 --_________________________________________________________________
-CREATE PROCEDURE LISTAR_VENDA_ID
-@CLICPF VARCHAR(12), @CARID INT
+ALTER PROCEDURE LISTAR_VENDA_ID
+@VENID INT
 AS
 BEGIN 
 	SELECT * FROM VENDA
-	WHERE CLICPF = @CLICPF AND CARID = @CARID
+	WHERE VENID = @VENID
 END
 --_________________________________________________________________

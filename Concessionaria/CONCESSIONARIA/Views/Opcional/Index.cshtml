@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Concessionaria.Dominio.Opcional>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index Opcionais</h2>
+
+<p>
+    @Html.ActionLink("Novo Opcional", "Cadastrar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Descrição
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opcid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opcdescr)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Opcid}) |
+            @Html.ActionLink("Detalhes", "Detalhes", new {id=item.Opcid}) |
+            @Html.ActionLink("Deletar", "Deletar", new { id=item.Opcid  })
+        </td>
+    </tr>
+}
+
+</table>

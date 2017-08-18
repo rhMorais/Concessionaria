@@ -1,5 +1,6 @@
 ﻿using Concessionaria.Dominio;
 using Concessionaria.Dominio.Contrato;
+using System;
 using System.Collections.Generic;
 
 namespace Concessionaria.Repositorio
@@ -48,12 +49,12 @@ namespace Concessionaria.Repositorio
             //var nomeCompleto2 = $"{nome} {sobrenome}";
         }
 
-        public Opcional ListarPorId(Opcional opcional)
+        public Opcional ListarPorId(string id)
         {
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("LISTAR_OPCIONAL_ID");
-                cmd.Parameters.AddWithValue("@OPCID", opcional.Opcid);
+                cmd.Parameters.AddWithValue("@OPCID", Convert.ToInt32(id));
 
                 var retornoOpcional = new Opcional();
                 using (var reader = cmd.ExecuteReader())
@@ -76,12 +77,15 @@ namespace Concessionaria.Repositorio
                 var opcionais = new List<Opcional>();
                 using (var reader = cmd.ExecuteReader())
                     if (reader.Read())
-                        while (reader.Read())
+                        do
+                        {
                             opcionais.Add(new Opcional
                             {
                                 Opcid = reader.ReadAsInt("OPCID"),
                                 Opcdescr = reader.ReadAsString("OPCDESCR")
                             });
+                        } while (reader.Read());
+
                 return opcionais;
             }            
         }        

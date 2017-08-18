@@ -41,12 +41,12 @@ namespace Concessionaria.Repositorio
             }
         }
 
-        public Login ListarPorId(Login login)
+        public Login ListarPorId(string usuario)
         {
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("LISTAR_LOGIN_ID");
-                cmd.Parameters.AddWithValue("@LOGUSUAR", login.Logusuar);
+                cmd.Parameters.AddWithValue("@LOGUSUAR", usuario);
 
                 var retornoLogin = new Login();
                 using (var reader = cmd.ExecuteReader())

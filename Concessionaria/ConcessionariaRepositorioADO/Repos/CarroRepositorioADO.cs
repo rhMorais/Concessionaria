@@ -1,5 +1,6 @@
 ﻿using Concessionaria.Dominio;
 using Concessionaria.Dominio.Contrato;
+using System;
 using System.Collections.Generic;
 
 namespace Concessionaria.Repositorio
@@ -48,12 +49,12 @@ namespace Concessionaria.Repositorio
             }
         }
 
-        public Carro ListarPorId(Carro carro)
+        public Carro ListarPorId(string id)
         {
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("LISTAR_CARRO_ID");
-                cmd.Parameters.AddWithValue("@CARID", carro.Carid);
+                cmd.Parameters.AddWithValue("@CARID", Convert.ToInt32(id));
 
                 var retornoCarro = new Carro();
                 using (var reader = cmd.ExecuteReader())

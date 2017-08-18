@@ -12,8 +12,6 @@ namespace CONCESSIONARIA.Controllers
         {
             return View();
         }
-
-
         
     }
 }

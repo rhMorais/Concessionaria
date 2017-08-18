@@ -28,9 +28,9 @@ namespace Concessionaria.Aplicacao.Aplicacoes
             return repositorio.ListarTodos();
         }
 
-        public Cliente listarPorId(Cliente cliente)
+        public Cliente listarPorId(string cpf)
         {
-            return repositorio.ListarPorId(cliente);
+            return repositorio.ListarPorId(cpf);
         }
     }
 }

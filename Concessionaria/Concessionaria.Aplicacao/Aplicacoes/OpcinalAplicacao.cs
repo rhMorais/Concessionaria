@@ -28,9 +28,9 @@ namespace Concessionaria.Aplicacao.Aplicacoes
             return repositorio.ListarTodos();
         }
 
-        public Opcional listarPorId(Opcional opcional)
+        public Opcional ListarPorId(string id)
         {
-            return repositorio.ListarPorId(opcional);
+            return repositorio.ListarPorId(id);
         }
     }
 }

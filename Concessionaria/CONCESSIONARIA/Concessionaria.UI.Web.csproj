@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OpcionalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -265,6 +266,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Opcional\Index.cshtml" />
+    <Content Include="Views\Opcional\Cadastrar.cshtml" />
+    <Content Include="Views\Opcional\Editar.cshtml" />
+    <Content Include="Views\Opcional\Detalhes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,6 +281,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Concessionaria.Aplicacao\Concessionaria.Aplicacao.csproj">
+      <Project>{61264340-e8ad-40a8-a8c5-538737ff1fe0}</Project>
+      <Name>Concessionaria.Aplicacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConcessionariaDominio\Concessionaria.Dominio.csproj">
+      <Project>{f3e6d004-fae3-40ec-9ef0-fb956b59e449}</Project>
+      <Name>Concessionaria.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConcessionariaRepositorioADO\Concessionaria.Repositorio.csproj">
+      <Project>{b9974053-ba93-4739-8ffc-761673c18166}</Project>
+      <Name>Concessionaria.Repositorio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
