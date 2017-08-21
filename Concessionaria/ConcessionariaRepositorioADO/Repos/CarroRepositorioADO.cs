@@ -2,24 +2,36 @@
 using Concessionaria.Dominio.Contrato;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Concessionaria.Repositorio
 {
-    public class CarroRepositorioADO : IRepositorio<Carro>
+    public class CarroRepositorioADO : ICarroRepositorio<Carro>
     {
         private Contexto contexto;
+
+        private void IncluirOpcional(Carro carro, int[] list)
+        {
+            for(var i = 0; i < list.Length; i++)
+            {
+                var cmd = contexto.ExecutaProcedure("INSERIR_CARRO_OPCIONAL");
+                cmd.Parameters.AddWithValue("@CARPLACA", carro.Carplaca);
+                cmd.Parameters.AddWithValue("@OPCID", list[i]);
+            }
+        }
 
         private void Inserir(Carro carro)
         {
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("INSERIR_CARRO");
-                cmd.Parameters.AddWithValue("@MODELO", carro.Carmodel);
-                cmd.Parameters.AddWithValue("@MARCA", carro.Carmarca);
-                cmd.Parameters.AddWithValue("@ANO", carro.Carano);
-                cmd.Parameters.AddWithValue("@TIPO", carro.Cartipo);
-                cmd.Parameters.AddWithValue("@COMBUSTIVEL", carro.Carcombu);
-                cmd.Parameters.AddWithValue("@COR", carro.Carcor);
+                cmd.Parameters.AddWithValue("@CARPLACA", carro.Carplaca);
+                cmd.Parameters.AddWithValue("@CARMODEL", carro.Carmodel);
+                cmd.Parameters.AddWithValue("@CARMARCA", carro.Carmarca);
+                cmd.Parameters.AddWithValue("@CARANO", carro.Carano);
+                cmd.Parameters.AddWithValue("@CARTIPO", carro.Cartipo);
+                cmd.Parameters.AddWithValue("@CARCOMBU", carro.Carcombu);
+                cmd.Parameters.AddWithValue("@CARCOR", carro.Carcor);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -29,13 +41,13 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("EDITAR_CARRO");
-                cmd.Parameters.AddWithValue("@ID", carro.Carid);
-                cmd.Parameters.AddWithValue("@MODELO", carro.Carmodel);
-                cmd.Parameters.AddWithValue("@MARCA", carro.Carmarca);
-                cmd.Parameters.AddWithValue("@COR", carro.Carcor);
-                cmd.Parameters.AddWithValue("@COMBU", carro.Carcombu);
-                cmd.Parameters.AddWithValue("@TIPO", carro.Cartipo);
-                cmd.Parameters.AddWithValue("@ANO", carro.Carano);
+                cmd.Parameters.AddWithValue("@CARPLACA", carro.Carplaca);
+                cmd.Parameters.AddWithValue("@CARMODEL", carro.Carmodel);
+                cmd.Parameters.AddWithValue("@CARMARCA", carro.Carmarca);
+                cmd.Parameters.AddWithValue("@CARANO", carro.Carano);
+                cmd.Parameters.AddWithValue("@CARTIPO", carro.Cartipo);
+                cmd.Parameters.AddWithValue("@CARCOMBU", carro.Carcombu);
+                cmd.Parameters.AddWithValue("@CARCOR", carro.Carcor);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -44,7 +56,7 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("DELETAR_CARRO");
-                cmd.Parameters.AddWithValue("@CARID", carro.Carid);
+                cmd.Parameters.AddWithValue("@CARPLACA", carro.Carplaca);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -54,7 +66,7 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("LISTAR_CARRO_ID");
-                cmd.Parameters.AddWithValue("@CARID", Convert.ToInt32(id));
+                cmd.Parameters.AddWithValue("@CARPLACA", id);
 
                 var retornoCarro = new Carro();
                 using (var reader = cmd.ExecuteReader())
@@ -64,10 +76,45 @@ namespace Concessionaria.Repositorio
                             Carano = reader.ReadAsString("CARANO"),
                             Carcombu = reader.ReadAsStringNull("CARCOMBU"),
                             Carcor = reader.ReadAsString("CARCOR"),
-                            Carid = reader.ReadAsInt("CARID"),
+                            Carplaca = reader.ReadAsString("CARPLACA"),
                             Carmarca = reader.ReadAsString("CARMARCA"),
                             Carmodel = reader.ReadAsString("CARMODEL"),
                             Cartipo = reader.ReadAsStringNull("CARTIPO")
+                        };
+                return retornoCarro;
+            }
+        }
+
+        
+
+        public Venda ListarDetalhesVendidos(string placa)
+        {
+            using (contexto = new Contexto())
+            {
+                var cmd = contexto.ExecutaProcedure("LISTAR_CARRO_VENDIDO_ID");
+                cmd.Parameters.AddWithValue("@CARPLACA", Convert.ToInt32(placa));
+
+                var retornoCarro = new Venda();
+                using (var reader = cmd.ExecuteReader())
+                    if (reader.Read())
+                        retornoCarro = new Venda
+                        {
+                            Venid = reader.ReadAsInt("VENID"),
+                            Vendatav = reader.ReadAsDateTimeNull("VENDATAV"),
+                            Venvalor = reader.ReadAsDecimalNull("VENVALOR"),
+                            Cliente = new Cliente
+                            {
+                                Clicpf = reader.ReadAsString("CLICPF"),
+                                Clinome = reader.ReadAsString("CLINOME"),
+                                Clitelef = reader.ReadAsString("CLITELEF")
+                            },
+                            Carro = new Carro
+                            {
+                                Carplaca = reader.ReadAsString("CARPLACA"),
+                                Carano = reader.ReadAsString("CARCOR"),
+                                Carmodel = reader.ReadAsString("CARMODEL"),
+                                Carcor = reader.ReadAsString("CARCOR")
+                            }
                         };
                 return retornoCarro;
             }
@@ -89,7 +136,7 @@ namespace Concessionaria.Repositorio
                                 Carano = reader.ReadAsString("CARANO"),
                                 Carcombu = reader.ReadAsStringNull("CARCOMBU"),
                                 Carcor = reader.ReadAsString("CARCOR"),
-                                Carid = reader.ReadAsInt("CARID"),
+                                Carplaca = reader.ReadAsString("CARPLACA"),
                                 Carmarca = reader.ReadAsString("CARMARCA"),
                                 Carmodel = reader.ReadAsString("CARMODEL"),
                                 Cartipo = reader.ReadAsStringNull("CARTIPO")
@@ -99,10 +146,64 @@ namespace Concessionaria.Repositorio
             }
         }
 
-        public void Salvar(Carro carro)
+        public IEnumerable<Opcional> ListarOpcionaldoCarro(string id)
         {
-            if (carro.Carid > 0) Alterar(carro);
-            else Inserir(carro);
+            using (contexto = new Contexto())
+            {
+                var cmd = contexto.ExecutaProcedure("LISTAR_CARRO_OPCIONAL_ID");
+                cmd.Parameters.AddWithValue("CARPLACA", id);
+                var retornoOpcional = new List<Opcional>();
+                using (var reader = cmd.ExecuteReader())
+                    if (reader.Read())
+                        do
+                        {
+                            retornoOpcional.Add(new Opcional
+                            {
+                                Opcdescr = reader.ReadAsString("OPCDESCR"),
+                                Opcid = reader.ReadAsInt("OPCID")
+                            });
+                        } while (reader.Read());
+                return retornoOpcional;
+            }
+        }
+
+        public IEnumerable<Carro> ListarVendidos()
+        {
+            using (contexto = new Contexto())
+            {
+                var cmd = contexto.ExecutaProcedure("LISTAR_VENDIDOS");
+
+                var carros = new List<Carro>();
+                using (var reader = cmd.ExecuteReader())
+                    if (reader.Read())
+                        do
+                        {
+                            carros.Add(new Carro
+                            {
+                                Carano = reader.ReadAsString("CARANO"),
+                                Carcor = reader.ReadAsString("CARCOR"),
+                                Carplaca = reader.ReadAsString("CARPLACA"),
+                                Carmarca = reader.ReadAsString("CARMARCA"),
+                                Carmodel = reader.ReadAsString("CARMODEL"),
+                            });
+                        } while (reader.Read());
+                return carros;
+            }
+        }
+        
+        public void Salvar(Carro carro, int[] list)
+        {
+            var penis = ListarTodos().Where(x => x.Carplaca == carro.Carplaca);
+            if (penis.Any())
+            {
+                Alterar(carro);
+                IncluirOpcional(carro, list);
+            }
+            else
+            {
+                Inserir(carro);
+                IncluirOpcional(carro, list);
+            }                
         }
     }
 }

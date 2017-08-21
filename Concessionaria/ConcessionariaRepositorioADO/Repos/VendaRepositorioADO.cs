@@ -14,10 +14,10 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("INSERIR_VENDA");
-                cmd.Parameters.AddWithValue("@CLIENTE", venda.Cliente.Clicpf);
-                cmd.Parameters.AddWithValue("@CARRO", venda.Carro.Carid);
-                cmd.Parameters.AddWithValue("@VALOR", venda.Venvalor);
-                cmd.Parameters.AddWithValue("@DATA", venda.Vendatav);
+                cmd.Parameters.AddWithValue("@CLICPF", venda.Cliente.Clicpf);
+                cmd.Parameters.AddWithValue("@CARPLACA", venda.Carro.Carplaca);
+                cmd.Parameters.AddWithValue("@VENVALOR", venda.Venvalor);
+                cmd.Parameters.AddWithValue("@VENDATAV", venda.Vendatav);
                 cmd.ExecuteNonQuery();
             }            
         }
@@ -49,10 +49,14 @@ namespace Concessionaria.Repositorio
                             Venvalor = reader.ReadAsDecimalNull("VENVALOR"),
                             Cliente = new Cliente
                             {
-                                Clinome = reader.ReadAsString("CLINOME")
+                                Clicpf = reader.ReadAsString("CLICPF"),
+                                Clinome = reader.ReadAsString("CLINOME"),
+                                Clitelef = reader.ReadAsString("CLITELEF")
                             },
                             Carro = new Carro
                             {
+                                Carplaca = reader.ReadAsString("CARPLACA"),
+                                Carano = reader.ReadAsString("CARCOR"),
                                 Carmodel = reader.ReadAsString("CARMODEL"),
                                 Carcor = reader.ReadAsString("CARCOR")
                             }

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Concessionaria.Dominio.Carro>
+
+@{
+    ViewBag.Title = "Vendidos";
+}
+
+<h2>Carros Vendidos</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Placa:
+        </th>
+        <th>
+            Modelo:
+        </th>
+        <th>
+            Marca:
+        </th>
+     
+        <th>
+            Cor:
+        </th>
+        <th>
+            Ano:
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carplaca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carmodel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carmarca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carcor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carano)
+        </td>
+        <td>            
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Carplaca }) |
+            @Html.ActionLink("Deletar", "Excluir", new { id=item.Carplaca})
+        </td>
+    </tr>
+}
+<td>@Html.ActionLink("Voltar", "Index")</td>
+
+</table>

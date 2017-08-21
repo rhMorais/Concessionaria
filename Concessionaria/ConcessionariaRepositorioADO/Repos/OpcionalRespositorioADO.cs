@@ -15,7 +15,7 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("INSERIR_OPCIONAL");
-                cmd.Parameters.AddWithValue("@DESC", opcional.Opcdescr);
+                cmd.Parameters.AddWithValue("@OPCDESCR", opcional.Opcdescr);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -25,8 +25,8 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("EDITAR_OPCIONAL");
-                cmd.Parameters.AddWithValue("@ID", opcional.Opcid);
-                cmd.Parameters.AddWithValue("@DESC", opcional.Opcdescr);
+                cmd.Parameters.AddWithValue("@OPCID", opcional.Opcid);
+                cmd.Parameters.AddWithValue("@OPCDESCR", opcional.Opcdescr);
                 cmd.ExecuteNonQuery();
             }
         }

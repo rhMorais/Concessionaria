@@ -7,11 +7,11 @@ BEGIN
 	DELETE OPCIONAL WHERE OPCID = @OPCID
 END
 --_____________________________________________________________________
-CREATE PROCEDURE DELETAR_CARRO
-@CARID INT
+ALTER PROCEDURE DELETAR_CARRO
+@CARPLACA VARCHAR(8)
 AS
 BEGIN 
-	DELETE CARRO WHERE CARID = @CARID
+	DELETE CARRO WHERE CARPLACA = @CARPLACA
 END
 --_____________________________________________________________________
 CREATE PROCEDURE DELETAR_LOGIN

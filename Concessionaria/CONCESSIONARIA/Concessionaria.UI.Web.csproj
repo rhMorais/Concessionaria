@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CarroController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -283,6 +284,13 @@
     <Content Include="Views\Cliente\Editar.cshtml" />
     <Content Include="Views\Cliente\Detalhes.cshtml" />
     <Content Include="Views\Cliente\Excluir.cshtml" />
+    <Content Include="Views\Carro\Index.cshtml" />
+    <Content Include="Views\Carro\Cadastrar.cshtml" />
+    <Content Include="Views\Carro\Editar.cshtml" />
+    <Content Include="Views\Carro\Detalhes.cshtml" />
+    <Content Include="Views\Carro\Excluir.cshtml" />
+    <Content Include="Views\Carro\Vendidos.cshtml" />
+    <Content Include="Views\Carro\DetalhesVendidos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

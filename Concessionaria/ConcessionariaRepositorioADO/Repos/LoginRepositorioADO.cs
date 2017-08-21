@@ -14,8 +14,8 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("INSERIR_LOGIN");
-                cmd.Parameters.AddWithValue("@USER", login.Logusuar);
-                cmd.Parameters.AddWithValue("@SENHA", login.Logsenha);
+                cmd.Parameters.AddWithValue("@LOGUSER", login.Logusuar);
+                cmd.Parameters.AddWithValue("@LOGSENHA", login.Logsenha);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -25,8 +25,8 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("EDITAR_LOGIN");
-                cmd.Parameters.AddWithValue("@USER", login.Logusuar);
-                cmd.Parameters.AddWithValue("@SENHA", login.Logsenha);
+                cmd.Parameters.AddWithValue("@LOGUSER", login.Logusuar);
+                cmd.Parameters.AddWithValue("@LOGSENHA", login.Logsenha);
                 cmd.ExecuteNonQuery();
             }
         }

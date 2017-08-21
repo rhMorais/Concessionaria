@@ -1,0 +1,98 @@
+﻿@model Concessionaria.Dominio.Venda
+
+@{
+    ViewBag.Title = "DetalhesVendidos";
+}
+
+<h2>Detalhe de Vendas</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Venid)
+        </dd>
+
+        <dt>
+            Valor:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Venvalor)
+        </dd>
+
+        <dt>
+            Data da venda:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendatav)
+        </dd>
+    
+        <dt>
+            Nome Cliente:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clinome)
+        </dd>
+
+        <dt>
+            CPF:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clicpf)
+        </dd>
+
+        <dt>
+            Telefone:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clitelef)
+        </dd>
+
+        <dt>
+            Placa:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carplaca)
+        </dd>
+
+        <dt>
+            Modelo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carmodel)
+        </dd>
+
+        <dt>
+            Cor:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carcor)
+        </dd>
+
+        <dt>
+            Ano:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carano)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

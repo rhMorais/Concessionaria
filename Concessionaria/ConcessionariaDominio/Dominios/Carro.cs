@@ -4,7 +4,8 @@ namespace Concessionaria.Dominio
 {
     public class Carro
     {
-        public int Carid { get; set; }
+        [Required(ErrorMessage = "Preencha a placa do carro")]
+        public string Carplaca { get; set; }
 
         [Required(ErrorMessage = "Preencha o modelo do carro")]
         public string Carmodel { get; set; }
@@ -25,5 +26,7 @@ namespace Concessionaria.Dominio
         
         [Required(ErrorMessage = "Preencha o ano do carro")]
         public string Carano { get; set; }
+
+        public int Carstatus { get; set; }
     }
 }

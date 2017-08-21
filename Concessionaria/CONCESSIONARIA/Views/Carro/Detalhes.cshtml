@@ -1,0 +1,79 @@
+﻿@model Concessionaria.Dominio.Carro
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes Carro</h2>
+
+<div>   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carplaca)
+        </dd>
+
+        <dt>
+            Modelo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carmodel)
+        </dd>
+
+        <dt>
+            Marca:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carmarca)
+        </dd>
+
+        <dt>
+            Cor:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carcor)
+        </dd>
+
+        <dt>
+            Ano:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carano)
+        </dd>
+        
+        <dt>
+            Combustível:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carcombu)
+        </dd>
+
+        <dt>
+            Tipo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cartipo)
+        </dd>          
+        <table>
+        @foreach (var item in Opcional) {
+            <tr>
+                <td></td>
+            </tr>
+        </table>>
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Carplaca }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

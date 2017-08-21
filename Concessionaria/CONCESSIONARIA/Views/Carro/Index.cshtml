@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Concessionaria.Dominio.Carro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index - Carros não vendidos</h2>
+<h3>@Html.ActionLink("Carros Vendidos", "Vendidos")</h3>
+<br />
+
+<p>
+    @Html.ActionLink("Cadastrar", "Cadastrar")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Placa:
+        </th>
+        <th>
+            Modelo:
+        </th>
+        <th>
+            Marca:
+        </th>
+        <th>
+            Cor:            
+        </th>
+        <th>
+            Ano:            
+        </th>
+        <th>
+            Combustível:            
+        </th>
+        <th>
+            Tipo:
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carplaca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carmodel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carmarca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carcor)            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carano)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carcombu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cartipo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new {  id=item.Carplaca }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new {  id=item.Carplaca }) |
+            @Html.ActionLink("Excluir", "Excluir", new {  id=item.Carplaca })
+        </td>
+    </tr>
+}
+
+</table>

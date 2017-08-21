@@ -14,12 +14,12 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("INSERIR_CLIENTE");
-                cmd.Parameters.AddWithValue("@CPF", cliente.Clicpf);
-                cmd.Parameters.AddWithValue("@NOME", cliente.Clinome);
-                cmd.Parameters.AddWithValue("@ENDERECO", cliente.Cliender);
-                cmd.Parameters.AddWithValue("@TELEFONE", cliente.Clitelef);
-                cmd.Parameters.AddWithValue("@DATANASC", cliente.Clidatan);
-                cmd.Parameters.AddWithValue("@CIDADE", cliente.Clicidad);
+                cmd.Parameters.AddWithValue("@CLICPF", cliente.Clicpf);
+                cmd.Parameters.AddWithValue("@CLINOME", cliente.Clinome);
+                cmd.Parameters.AddWithValue("@CLIENDER", cliente.Cliender);
+                cmd.Parameters.AddWithValue("@CLITELEF", cliente.Clitelef);
+                cmd.Parameters.AddWithValue("@CLIDATAN", cliente.Clidatan);
+                cmd.Parameters.AddWithValue("@CLICIDAD", cliente.Clicidad);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -29,12 +29,12 @@ namespace Concessionaria.Repositorio
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("EDITAR_CLIENTE");
-                cmd.Parameters.AddWithValue("@CPF", cliente.Clicpf);
-                cmd.Parameters.AddWithValue("@NOME", cliente.Clinome);
-                cmd.Parameters.AddWithValue("@ENDER", cliente.Cliender);
-                cmd.Parameters.AddWithValue("@TELEFONE", cliente.Clitelef);
-                cmd.Parameters.AddWithValue("@DATA", cliente.Clidatan);
-                cmd.Parameters.AddWithValue("@CIDADE", cliente.Clicidad);
+                cmd.Parameters.AddWithValue("@CLICPF", cliente.Clicpf);
+                cmd.Parameters.AddWithValue("@CLINOME", cliente.Clinome);
+                cmd.Parameters.AddWithValue("@CLIENDER", cliente.Cliender);
+                cmd.Parameters.AddWithValue("@CLITELEF", cliente.Clitelef);
+                cmd.Parameters.AddWithValue("@CLIDATAN", cliente.Clidatan);
+                cmd.Parameters.AddWithValue("@CLICIDAD", cliente.Clicidad);
                 cmd.ExecuteNonQuery();
             }
         }

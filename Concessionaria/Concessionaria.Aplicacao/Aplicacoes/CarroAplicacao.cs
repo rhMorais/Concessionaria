@@ -6,16 +6,16 @@ namespace Concessionaria.Aplicacao.Aplicacoes
 {
     public class CarroAplicacao
     {
-        private readonly IRepositorio<Carro> repositorio;
+        private readonly ICarroRepositorio<Carro> repositorio;
 
-        public CarroAplicacao(IRepositorio<Carro> repo)
+        public CarroAplicacao(ICarroRepositorio<Carro> repo)
         {
             repositorio = repo;
         }
 
-        public void Salvar(Carro carro)
+        public void Salvar(Carro carro, int[] list)
         {
-            repositorio.Salvar(carro);
+            repositorio.Salvar(carro, list);
         }
 
         public void Excluir(Carro carro)
@@ -28,9 +28,24 @@ namespace Concessionaria.Aplicacao.Aplicacoes
             return repositorio.ListarTodos();
         }
 
-        public Carro listarPorId(string id)
+        public IEnumerable<Carro> ListarVendidos()
+        {
+            return repositorio.ListarVendidos();
+        }
+
+        public Venda ListarDetalhesVendidos(string placa)
+        {
+            return ListarDetalhesVendidos(placa);
+        }
+
+        public Carro ListarPorId(string id)
         {
             return repositorio.ListarPorId(id);
+        }
+
+        public IEnumerable<Opcional> ListarOpcionaldoCarro(string id)
+        {
+            return ListarOpcionaldoCarro(id);
         }
     }
 }
