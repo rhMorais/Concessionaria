@@ -2,7 +2,6 @@
 using Concessionaria.Dominio.Contrato;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Concessionaria.Repositorio
 {
@@ -10,14 +9,19 @@ namespace Concessionaria.Repositorio
     {
         private Contexto contexto;
 
-        private void IncluirOpcional(Carro carro, int[] list)
+        private void IncluirOpcional(Carro carro)
         {
-            for(var i = 0; i < list.Length; i++)
-            {
-                var cmd = contexto.ExecutaProcedure("INSERIR_CARRO_OPCIONAL");
-                cmd.Parameters.AddWithValue("@CARPLACA", carro.Carplaca);
-                cmd.Parameters.AddWithValue("@OPCID", list[i]);
-            }
+            using (contexto = new Contexto())
+                if (carro.Caropcio != null)
+                    foreach (var item in carro.Caropcio)
+                    {
+                        using (var cmd = contexto.ExecutaProcedure("INSERIR_CARRO_OPCIONAL"))
+                        {
+                            cmd.Parameters.AddWithValue("@CARPLACA", carro.Carplaca);
+                            cmd.Parameters.AddWithValue("@OPCID", item.Opcid);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
         }
 
         private void Inserir(Carro carro)
@@ -85,7 +89,7 @@ namespace Concessionaria.Repositorio
             }
         }
 
-        
+
 
         public Venda ListarDetalhesVendidos(string placa)
         {
@@ -190,20 +194,21 @@ namespace Concessionaria.Repositorio
                 return carros;
             }
         }
-        
-        public void Salvar(Carro carro, int[] list)
+
+        public void Salvar(Carro carro)
         {
-            var penis = ListarTodos().Where(x => x.Carplaca == carro.Carplaca);
-            if (penis.Any())
+            //var penis = ListarTodos().Where(x => x.Carplaca == carro.Carplaca);
+            var xota = ListarPorId(carro.Carplaca);
+            if (xota == null)
             {
                 Alterar(carro);
-                IncluirOpcional(carro, list);
+                IncluirOpcional(carro);
             }
             else
             {
                 Inserir(carro);
-                IncluirOpcional(carro, list);
-            }                
+                IncluirOpcional(carro);
+            }
         }
     }
 }

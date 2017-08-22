@@ -10,7 +10,7 @@ namespace Concessionaria.Repositorio
 
         public Contexto()
         {
-            minhaConexao = new SqlConnection(@"data source=PC-RAFAEL\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=CONCESSIONARIA");
+            minhaConexao = new SqlConnection(@"data source=RAFAELHENRIQUE-\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=CONCESSIONARIA");
             minhaConexao.Open();
         }        
 

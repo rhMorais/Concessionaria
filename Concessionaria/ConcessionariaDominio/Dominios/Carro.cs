@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Concessionaria.Dominio
 {
@@ -28,5 +29,7 @@ namespace Concessionaria.Dominio
         public string Carano { get; set; }
 
         public int Carstatus { get; set; }
+
+        public IEnumerable<Opcional> Caropcio { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Concessionaria.Repositorio
 {
-    public class LoginRepositorioADO : IRepositorio<Login>
+    public class LoginRepositorioADO : ILoginRepositorio
     {
         private Contexto contexto;
 
@@ -87,6 +87,22 @@ namespace Concessionaria.Repositorio
 
             if (logins.Any()) Alterar(login);
             else Inserir(login);
+        }
+
+        public bool AutenticarUsuario(Login login)
+        {
+            IList<Login> logins = ListarTodos().ToList();
+            foreach(var item in logins)
+            {
+                if (item.Logusuar.Trim().Equals(login.Logusuar.Trim()))
+                {
+                    if (item.Logsenha.Trim().Equals(login.Logsenha.Trim()))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

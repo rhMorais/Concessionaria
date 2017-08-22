@@ -6,9 +6,9 @@ namespace Concessionaria.Aplicacao.Aplicacoes
 {
     public class LoginAplicacao
     {
-        private readonly IRepositorio<Login> repositorio;
+        private readonly ILoginRepositorio repositorio;
 
-        public LoginAplicacao(IRepositorio<Login> repo)
+        public LoginAplicacao(ILoginRepositorio repo)
         {
             repositorio = repo;
         }
@@ -31,6 +31,11 @@ namespace Concessionaria.Aplicacao.Aplicacoes
         public Login ListarPorId(string usuario)
         {
             return repositorio.ListarPorId(usuario);
+        }
+
+        public bool AutenticarUsuario(Login login)
+        {
+            return repositorio.AutenticarUsuario(login);
         }
     }
 }

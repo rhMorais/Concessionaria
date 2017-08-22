@@ -1,6 +1,7 @@
 ﻿using Concessionaria.Aplicacao.Aplicacoes;
 using Concessionaria.Aplicacao.Construtores;
 using Concessionaria.Dominio;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
@@ -39,11 +40,20 @@ namespace CONCESSIONARIA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Cadastrar(Carro carro, int[] Opcional)
+        public ActionResult Cadastrar(Carro carro, int[] opcionais)
         {
+            if (opcionais == null)
+                return HttpNotFound();
+
+            var caropcio = new List<Opcional>();
+            for (var i = 0; i < opcionais.Length; i++)
+                caropcio.Add(new Opcional { Opcid = opcionais[i] });
+
+            carro.Caropcio = caropcio;
+
             if (ModelState.IsValid)
             {
-                appCarro.Salvar(carro, Opcional);                
+                appCarro.Salvar(carro);                
                 return RedirectToAction("Index");
             }
             return View(carro);
@@ -61,11 +71,11 @@ namespace CONCESSIONARIA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(Carro carro, int[] Opcional)
+        public ActionResult Editar(Carro carro)
         {
             if (ModelState.IsValid)
             {
-                appCarro.Salvar(carro, Opcional);
+                appCarro.Salvar(carro);
                 return RedirectToAction("Index");
             }
             return View(carro);

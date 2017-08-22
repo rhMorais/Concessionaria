@@ -13,9 +13,9 @@ namespace Concessionaria.Aplicacao.Aplicacoes
             repositorio = repo;
         }
 
-        public void Salvar(Carro carro, int[] list)
+        public void Salvar(Carro carro)
         {
-            repositorio.Salvar(carro, list);
+            repositorio.Salvar(carro);
         }
 
         public void Excluir(Carro carro)

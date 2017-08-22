@@ -248,7 +248,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -285,12 +284,13 @@
     <Content Include="Views\Cliente\Detalhes.cshtml" />
     <Content Include="Views\Cliente\Excluir.cshtml" />
     <Content Include="Views\Carro\Index.cshtml" />
-    <Content Include="Views\Carro\Cadastrar.cshtml" />
     <Content Include="Views\Carro\Editar.cshtml" />
     <Content Include="Views\Carro\Detalhes.cshtml" />
     <Content Include="Views\Carro\Excluir.cshtml" />
     <Content Include="Views\Carro\Vendidos.cshtml" />
     <Content Include="Views\Carro\DetalhesVendidos.cshtml" />
+    <Content Include="Views\Carro\Cadastrar.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

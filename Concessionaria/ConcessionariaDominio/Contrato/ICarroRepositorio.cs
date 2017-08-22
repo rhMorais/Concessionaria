@@ -4,7 +4,7 @@ namespace Concessionaria.Dominio.Contrato
 {
     public interface ICarroRepositorio<Carro> 
     {
-        void Salvar(Carro entidade, int[] list);
+        void Salvar(Carro entidade);
         void Excluir(Carro entidade);
         IEnumerable<Carro> ListarTodos();
         IEnumerable<Opcional> ListarOpcionaldoCarro(string id);

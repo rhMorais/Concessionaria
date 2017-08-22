@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contrato\ICarroRepositorio.cs" />
+    <Compile Include="Contrato\ILoginRepositorio.cs" />
     <Compile Include="Dominios\Carro.cs" />
     <Compile Include="Dominios\Cliente.cs" />
     <Compile Include="Contrato\IRepositorio.cs" />
