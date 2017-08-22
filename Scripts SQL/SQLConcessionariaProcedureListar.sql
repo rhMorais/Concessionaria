@@ -5,7 +5,7 @@ BEGIN
 	SELECT * FROM OPCIONAL
 END
 --_________________________________________________________________
-ALTER PROCEDURE LISTAR_CARRO
+CREATE PROCEDURE LISTAR_CARRO
 AS
 BEGIN 
 	SELECT CARPLACA, CARMODEL, CARMARCA, CARCOR, CARANO, CARCOMBU, CARTIPO
@@ -19,7 +19,7 @@ AS
 BEGIN
 	SELECT * FROM CARRO 
 	WHERE CARSTATUS = 1
-
+END
 --_________________________________________________________________
 CREATE PROCEDURE LISTAR_LOGIN
 AS

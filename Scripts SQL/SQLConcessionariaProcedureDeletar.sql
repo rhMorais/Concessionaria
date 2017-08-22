@@ -7,7 +7,7 @@ BEGIN
 	DELETE OPCIONAL WHERE OPCID = @OPCID
 END
 --_____________________________________________________________________
-ALTER PROCEDURE DELETAR_CARRO
+CREATE PROCEDURE DELETAR_CARRO
 @CARPLACA VARCHAR(8)
 AS
 BEGIN 
@@ -28,7 +28,7 @@ BEGIN
 	DELETE CLIENTE WHERE CLICPF = @CLICPF
 END
 --_____________________________________________________________________
-ALTER PROCEDURE DELETAR_VENDA
+CREATE PROCEDURE DELETAR_VENDA
 @VENID INT
 AS
 BEGIN 

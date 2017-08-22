@@ -7,7 +7,7 @@ BEGIN
 	WHERE OPCID = @OPCID
 END
 --_________________________________________________________________
-ALTER PROCEDURE LISTAR_CARRO_ID
+CREATE PROCEDURE LISTAR_CARRO_ID
 @CARPLACA VARCHAR(8)
 AS
 BEGIN 
@@ -15,7 +15,7 @@ BEGIN
 	WHERE CARPLACA = @CARPLACA
 END
 --_________________________________________________________________
-ALTER PROCEDURE LISTAR_CARRO_OPCIONAL_ID
+CREATE PROCEDURE LISTAR_CARRO_OPCIONAL_ID
 @CARPLACA VARCHAR(8)
 AS
 BEGIN	
@@ -41,7 +41,7 @@ BEGIN
 	WHERE CLICPF = @CLICPF
 END
 --_________________________________________________________________
-ALTER PROCEDURE LISTAR_VENDA_ID
+CREATE PROCEDURE LISTAR_VENDA_ID
 @VENID INT
 AS
 BEGIN 
@@ -54,7 +54,7 @@ BEGIN
 END
 --_________________________________________________________________
 
-ALTER PROCEDURE LISTAR_CARRO_VENDIDO_ID
+CREATE PROCEDURE LISTAR_CARRO_VENDIDO_ID
 @CARPLACA INT
 AS
 BEGIN 
