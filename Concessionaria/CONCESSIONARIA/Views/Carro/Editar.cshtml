@@ -1,7 +1,14 @@
-﻿@model Concessionaria.Dominio.Carro
+﻿@model Carro
 
+@using Concessionaria.Dominio
 @{
     ViewBag.Title = "Editar";
+    var opcionais = ((IEnumerable<Opcional>)ViewBag.Opcional).ToList();
+    var CaropcioID = new List<int>();
+    foreach (var item in Model.Caropcio)
+    {
+        CaropcioID.Add(item.Opcid);
+    }
 }
 
 <h2>Editar Carro</h2>
@@ -12,9 +19,9 @@
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Carplaca)
 
-    <div class="form-horizontal">        
+    <div class="form-horizontal">
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })     
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
             <label class="control-label col-md-2" for="Carplaca">Placa:</label>
@@ -71,7 +78,28 @@
                 @Html.ValidationMessageFor(model => model.Cartipo, "", new { @class = "text-danger" })
             </div>
         </div>
-              
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Caropcio">Opcinais:</label>
+            <div class="col-md-10">
+                @*@for (var i = 0; i < opcionais.Count; i++)*@
+                
+                @foreach (var item in opcionais)
+                {
+                 
+                    if (CaropcioID.Contains(item.Opcid))
+                    {
+                        <input type="checkbox" name="opcio" id="Opcional_@item.Opcid" value="@item.Opcid" checked="checked" /><label for="Opcional_@item.Opcid">@item.Opcdescr</label> <br>
+                    }
+                    else
+                    {
+                        <input type = "checkbox" name = "opcio" id = "Opcional_@item.Opcid" value = "@item.Opcid" /><label for= "Opcional_@item.Opcid" > @item.Opcdescr </label > <br >
+                    }                   
+                }
+            </div>
+        </div>
+
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Salvar" class="btn btn-default" />
@@ -87,3 +115,4 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+@*@Html.DropDownList("Opcional", "Selecione")*@

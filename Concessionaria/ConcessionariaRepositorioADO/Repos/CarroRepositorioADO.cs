@@ -12,6 +12,12 @@ namespace Concessionaria.Repositorio
         private void IncluirOpcional(Carro carro)
         {
             using (contexto = new Contexto())
+            {
+                using (var del = contexto.ExecutaProcedure("DELETAR_CARRO_OPCIONAL"))
+                {
+                    del.Parameters.AddWithValue("@CARPLACA", carro.Carplaca);
+                    del.ExecuteNonQuery();
+                }
                 if (carro.Caropcio != null)
                     foreach (var item in carro.Caropcio)
                     {
@@ -22,6 +28,7 @@ namespace Concessionaria.Repositorio
                             cmd.ExecuteNonQuery();
                         }
                     }
+            }
         }
 
         private void Inserir(Carro carro)
@@ -74,6 +81,7 @@ namespace Concessionaria.Repositorio
 
                 var retornoCarro = new Carro();
                 using (var reader = cmd.ExecuteReader())
+                {
                     if (reader.Read())
                         retornoCarro = new Carro
                         {
@@ -85,6 +93,9 @@ namespace Concessionaria.Repositorio
                             Carmodel = reader.ReadAsString("CARMODEL"),
                             Cartipo = reader.ReadAsStringNull("CARTIPO")
                         };
+                    retornoCarro.Caropcio = ListarOpcionaldoCarro(id);
+                }
+
                 return retornoCarro;
             }
         }
@@ -150,7 +161,7 @@ namespace Concessionaria.Repositorio
             }
         }
 
-        public IEnumerable<Opcional> ListarOpcionaldoCarro(string id)
+        public IList<Opcional> ListarOpcionaldoCarro(string id)
         {
             using (contexto = new Contexto())
             {
@@ -199,7 +210,7 @@ namespace Concessionaria.Repositorio
         {
             //var penis = ListarTodos().Where(x => x.Carplaca == carro.Carplaca);
             var xota = ListarPorId(carro.Carplaca);
-            if (xota == null)
+            if (xota.Carplaca != null)
             {
                 Alterar(carro);
                 IncluirOpcional(carro);

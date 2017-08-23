@@ -7,7 +7,7 @@ namespace Concessionaria.Dominio.Contrato
         void Salvar(Carro entidade);
         void Excluir(Carro entidade);
         IEnumerable<Carro> ListarTodos();
-        IEnumerable<Opcional> ListarOpcionaldoCarro(string id);
+        IList<Opcional> ListarOpcionaldoCarro(string id);
         Carro ListarPorId(string id);
         IEnumerable<Carro> ListarVendidos();
         Venda ListarDetalhesVendidos(string placa);

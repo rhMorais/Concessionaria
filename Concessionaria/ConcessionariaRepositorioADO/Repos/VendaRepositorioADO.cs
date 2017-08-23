@@ -77,6 +77,7 @@ namespace Concessionaria.Repositorio
                         {
                             vendas.Add(new Venda
                             {
+                                Venid = reader.ReadAsInt("VENID"),
                                 Vendatav = reader.ReadAsDateTimeNull("VENDATAV"),
                                 Venvalor = reader.ReadAsDecimalNull("VENVALOR"),
                                 Cliente = new Cliente
@@ -86,7 +87,7 @@ namespace Concessionaria.Repositorio
                                 Carro = new Carro
                                 {
                                     Carmodel = reader.ReadAsString("CARMODEL"),
-                                    Carcor = reader.ReadAsString("CARCOR")
+                                    Carplaca = reader.ReadAsString("CARPLACA")
                                 }
                             });
                         } while (reader.Read());

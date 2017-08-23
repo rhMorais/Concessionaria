@@ -42,14 +42,13 @@ namespace CONCESSIONARIA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Carro carro, int[] opcionais)
         {
-            if (opcionais == null)
-                return HttpNotFound();
-
             var caropcio = new List<Opcional>();
-            for (var i = 0; i < opcionais.Length; i++)
-                caropcio.Add(new Opcional { Opcid = opcionais[i] });
+            if (opcionais != null)
+            {
+                for (var i = 0; i < opcionais.Length; i++)
+                    caropcio.Add(new Opcional { Opcid = opcionais[i] });
 
-            carro.Caropcio = caropcio;
+            }            
 
             if (ModelState.IsValid)
             {
@@ -61,7 +60,9 @@ namespace CONCESSIONARIA.Controllers
 
         public ActionResult Editar(string id)
         {
+            ViewBag.Opcional = appOpcional.ListarTodos();
             var carro = appCarro.ListarPorId(id);
+          
             if (carro == null)
             {
                 return HttpNotFound();
@@ -71,8 +72,16 @@ namespace CONCESSIONARIA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(Carro carro)
+        public ActionResult Editar(Carro carro, int[] opcio)
         {
+            var caropcio = new List<Opcional>();
+            if (opcio != null)
+            {                
+                for (var i = 0; i < opcio.Length; i++)
+                    caropcio.Add(new Opcional { Opcid = opcio[i] });
+            }
+            else caropcio = null;
+            carro.Caropcio = caropcio;
             if (ModelState.IsValid)
             {
                 appCarro.Salvar(carro);
@@ -83,12 +92,11 @@ namespace CONCESSIONARIA.Controllers
 
         public ActionResult Detalhes(string id)
         {
-            var carro = appCarro.ListarPorId(id);
+            var carro = appCarro.ListarPorId(id);            
             if (carro == null)
             {
                 return HttpNotFound();
-            }
-            ViewBag.Opcional = appCarro.ListarOpcionaldoCarro(id);
+            }          
             return View(carro);
         }
 

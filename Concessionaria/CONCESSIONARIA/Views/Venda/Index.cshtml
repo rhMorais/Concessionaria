@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Concessionaria.Dominio.Venda>
+@using Concessionaria.Dominio;
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index Vendas</h2>
+
+<p>
+    @Html.ActionLink("Nova Venda", "Cadastrar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID Venda
+        </th>
+        <th>
+            Valor
+        </th>
+        <th>
+            Data da venda
+        </th>
+        <th>
+            Modelo:
+        </th>
+        <th>
+            Placa
+        </th>
+        <th>
+            Cliente
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venvalor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendatav)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carro.Carmodel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carro.Carplaca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Clinome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Venid }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Venid }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.Venid })
+            </td>
+        </tr>
+    }
+
+</table>

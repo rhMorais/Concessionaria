@@ -30,6 +30,6 @@ namespace Concessionaria.Dominio
 
         public int Carstatus { get; set; }
 
-        public IEnumerable<Opcional> Caropcio { get; set; }
+        public IList<Opcional> Caropcio { get; set; }
     }
 }

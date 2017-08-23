@@ -5,13 +5,12 @@ BEGIN
 	SELECT * FROM OPCIONAL
 END
 --_________________________________________________________________
-CREATE PROCEDURE LISTAR_CARRO
+ALTER PROCEDURE LISTAR_CARRO
 AS
 BEGIN 
 	SELECT CARPLACA, CARMODEL, CARMARCA, CARCOR, CARANO, CARCOMBU, CARTIPO
-	 FROM CARRO
+	 FROM CARRO WHERE carstatus = 0
 END
-EXEC LISTAR_CARRO
 --______________________________________________________________
 
 CREATE PROCEDURE LISTAR_VENDIDOS
@@ -32,10 +31,16 @@ AS
 BEGIN 
 	SELECT * FROM CLIENTE
 END
+
+
 --_________________________________________________________________
-CREATE PROCEDURE LISTAR_VENDA
+ALTER PROCEDURE LISTAR_VENDA
 AS
 BEGIN 
-	SELECT * FROM VENDA
+	SELECT	V.VENDATAV, V.VENID, V.VENVALOR, C.CARMODEL, C.CARPLACA,
+			CLI.CLINOME 
+	FROM VENDA V INNER JOIN CARRO C ON V.CARPLACA = C.CARPLACA
+		INNER JOIN CLIENTE CLI ON V.CLICPF = CLI.CLICPF
+
 END
 --_________________________________________________________________

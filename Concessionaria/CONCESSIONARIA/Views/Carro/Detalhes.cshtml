@@ -64,14 +64,22 @@
         <dd>
             @Html.DisplayFor(model => model.Cartipo)
         </dd>
+        <br/>
+        <dt>
+            Opcionais:
+        </dt>
 
-        @foreach (var item in Model.Caropcio)
+
+        @if (Model.Caropcio != null)
         {
-            <dd>
-                @Html.DisplayFor(model  => model.Caropcio.Opcdescr)
-            </dd>
+            foreach (var item in Model.Caropcio)
+            {
+                <dd>
+                    @Html.DisplayFor(model => item.Opcdescr)
+                </dd>
+            }
         }
-
+        
     </dl>
 </div>
 <p>
