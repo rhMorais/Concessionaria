@@ -6,7 +6,20 @@ using System.Web.Security;
 
 namespace CONCESSIONARIA.Controllers
 {
-    public class HomeController : Controller
+    public class AuthController : Controller
+    {
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            if (true)
+            {
+                filterContext.Result = new RedirectResult("/controller/action");
+            }
+
+            base.OnActionExecuting(filterContext);
+        }
+    }
+
+    public class HomeController : AuthController
     {
         private LoginAplicacao appLogin;
 

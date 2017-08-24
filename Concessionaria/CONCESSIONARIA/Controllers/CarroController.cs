@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
 {
-
+    [Authorize]
     public class CarroController : Controller
     {
         private CarroAplicacao appCarro;
