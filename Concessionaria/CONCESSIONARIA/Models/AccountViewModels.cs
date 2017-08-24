@@ -6,7 +6,7 @@ namespace CONCESSIONARIA.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Usuario")]
         public string Email { get; set; }
     }
 

@@ -28,7 +28,7 @@ namespace Concessionaria.Aplicacao.Aplicacoes
             return repositorio.ListarTodos();
         }
 
-        public Venda listarPorId(string id)
+        public Venda ListarPorId(string id)
         {
             return repositorio.ListarPorId(id);
         }

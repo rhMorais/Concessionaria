@@ -56,7 +56,7 @@ namespace Concessionaria.Repositorio
                             Carro = new Carro
                             {
                                 Carplaca = reader.ReadAsString("CARPLACA"),
-                                Carano = reader.ReadAsString("CARCOR"),
+                                Carano = reader.ReadAsString("CARANO"),
                                 Carmodel = reader.ReadAsString("CARMODEL"),
                                 Carcor = reader.ReadAsString("CARCOR")
                             }

@@ -27,10 +27,10 @@ namespace CONCESSIONARIA.Controllers
             if (appLogin.AutenticarUsuario(login))
             {
                 FormsAuthentication.SetAuthCookie(login.Logusuar, false);
-                return RedirectToAction("Index", "Carro");
+                return RedirectToAction("Index", "Venda");
             }
             return View(login);
-        }
+        }                       
 
     }
 }

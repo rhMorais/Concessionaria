@@ -52,8 +52,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Cliente.Clinome)
             </td>
-            <td>
-                @Html.ActionLink("Editar", "Editar", new { id = item.Venid }) |
+            <td>                
                 @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Venid }) |
                 @Html.ActionLink("Excluir", "Excluir", new { id = item.Venid })
             </td>

@@ -1,0 +1,98 @@
+﻿@model Concessionaria.Dominio.Venda
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes da Venda: @Html.DisplayFor(model => model.Venid) </h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">        
+            <dt>
+                ID venda:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Venid)
+            </dd>
+
+            <dt>
+                Valor:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Venvalor)
+            </dd>
+
+            <dt>
+                Data da venda:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Vendatav)
+            </dd>
+        <br />
+            <dt>
+                Placa do veiculo:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Carro.Carplaca)
+            </dd>
+
+            <dt>
+                Modelo:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Carro.Carmodel)
+            </dd>
+
+            <dt>
+                Cor:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Carro.Carcor)
+            </dd>
+
+            <dt>
+                Ano:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Carro.Carano)
+            </dd>
+        <br />
+            <dt>
+                CPF Cliente:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cliente.Clicpf)
+            </dd>
+
+
+            <dt>
+                Nome:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cliente.Clinome)
+            </dd>
+
+
+            <dt>
+                Telefone:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cliente.Clitelef)
+            </dd>
+        <br />
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Voltar", "Index")
+</p>

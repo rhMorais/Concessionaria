@@ -1,10 +1,11 @@
 ﻿@model Concessionaria.Dominio.Venda
-
+@using Concessionaria.Dominio
 @{
     ViewBag.Title = "Cadastrar";
+    
 }
 
-<h2>Cadastrar</h2>
+<h2>Cadastrar Venda</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +13,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Venda</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })        
 
@@ -35,16 +35,16 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="CarPlaca">Placa:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Carro.Carplaca, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.DropDownList("Carro", "Selecione")
+                @Html.DropDownListFor(model => model.Carro.Carplaca, (List<SelectListItem>)ViewBag.carros, "Selecione um carro", 
+                new { @class = "form-control" })
+                
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="Clicpf">CPF:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cliente.Clicpf, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cliente.Clicpf, "", new { @class = "text-danger" })
+               @Html.DropDownListFor(model => model.Cliente.Clicpf, (List<SelectListItem>)ViewBag.clientes, "Selecione um cliente", new {@class = "form-control" })
             </div>
         </div>
 

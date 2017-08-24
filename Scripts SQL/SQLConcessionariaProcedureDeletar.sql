@@ -49,7 +49,7 @@ END
 CREATE PROCEDURE DELETAR_VENDA
 @VENID INT
 AS
-BEGIN 
+BEGIN 	
 	DELETE VENDA WHERE VENID = @VENID
 END
 --_____________________________________________________________________

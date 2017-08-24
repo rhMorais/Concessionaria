@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
 {
-    [Authorize]
+    
     public class ClienteController : Controller
     {
         private ClienteAplicacao appCliente;
