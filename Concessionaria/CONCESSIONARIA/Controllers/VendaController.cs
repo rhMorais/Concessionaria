@@ -1,12 +1,13 @@
 ﻿using Concessionaria.Aplicacao.Aplicacoes;
 using Concessionaria.Aplicacao.Construtores;
 using Concessionaria.Dominio;
+using CONCESSIONARIA.ControleLogin;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
 {
-    public class VendaController : Controller
+    public class VendaController : AuthController
     {
         private VendaAplicacao appVenda;
         private CarroAplicacao appCarro;
@@ -36,7 +37,7 @@ namespace CONCESSIONARIA.Controllers
                 clientesSelecionaveis.Add(new SelectListItem
                 {
                     Value = item.Clicpf,
-                    Text = item.Clinome
+                    Text = item.Clinome + " - " + item.Clicpf
                 });
             }
             foreach (var item in listaCarros)

@@ -5,6 +5,7 @@ namespace Concessionaria.Dominio
 {
     public class Carro
     {
+        
         [Required(ErrorMessage = "Preencha a placa do carro")]
         public string Carplaca { get; set; }
 
@@ -12,7 +13,6 @@ namespace Concessionaria.Dominio
         public string Carmodel { get; set; }
 
         [Required(ErrorMessage = "Preencha a marca do carro")]
-
         [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "[Sem informacao]")]
         public string Carmarca { get; set; }
 
@@ -24,7 +24,8 @@ namespace Concessionaria.Dominio
 
         [Required(ErrorMessage = "Preencha a cor do carro")]
         public string Carcor { get; set; }
-        
+
+        [StringLength(9, MinimumLength = 4)]
         [Required(ErrorMessage = "Preencha o ano do carro")]
         public string Carano { get; set; }
 

@@ -33,10 +33,14 @@ namespace Concessionaria.Aplicacao.Aplicacoes
             return repositorio.ListarVendidos();
         }
 
-        public Venda ListarDetalhesVendidos(string placa)
+
+
+        public Venda ListarDetalhesVendidos(string id)
         {
-            return ListarDetalhesVendidos(placa);
+            return repositorio.ListarDetalhesVendidos(id);
         }
+
+
 
         public Carro ListarPorId(string id)
         {

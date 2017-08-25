@@ -1,11 +1,12 @@
 ﻿using Concessionaria.Aplicacao.Aplicacoes;
 using Concessionaria.Aplicacao.Construtores;
 using Concessionaria.Dominio;
+using CONCESSIONARIA.ControleLogin;
 using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
 {
-    public class OpcionalController : Controller
+    public class OpcionalController : AuthController
     {
         private OpcinalAplicacao appOpcional;
     

@@ -195,8 +195,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ControleLogin\AuthController.cs" />
     <Compile Include="Controllers\CarroController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\EfetuarLoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OpcionalController.cs" />
@@ -236,6 +238,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Carro\Validation.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -284,6 +287,8 @@
     <Content Include="Views\Venda\Cadastrar.cshtml" />
     <Content Include="Views\Venda\Excluir.cshtml" />
     <Content Include="Views\Venda\Detalhes.cshtml" />
+    <Content Include="Views\EfetuarLogin\Index.cshtml" />
+    <Content Include="Views\EfetuarLogin\Logoff.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

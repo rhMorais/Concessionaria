@@ -1,12 +1,13 @@
 ﻿using Concessionaria.Aplicacao.Aplicacoes;
 using Concessionaria.Aplicacao.Construtores;
 using Concessionaria.Dominio;
+using CONCESSIONARIA.ControleLogin;
 using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
 {
     
-    public class ClienteController : Controller
+    public class ClienteController : AuthController
     {
         private ClienteAplicacao appCliente;
 

@@ -33,18 +33,19 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="CarPlaca">Placa:</label>
+            <label class="control-label col-md-2" for="CarPlaca">Veículo:</label>
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Carro.Carplaca, (List<SelectListItem>)ViewBag.carros, "Selecione um carro", 
                 new { @class = "form-control" })
-                
+                @Html.ValidationMessageFor(model => model.Carro, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="Clicpf">CPF:</label>
+            <label class="control-label col-md-2" for="Clicpf">Carro:</label>
             <div class="col-md-10">
                @Html.DropDownListFor(model => model.Cliente.Clicpf, (List<SelectListItem>)ViewBag.clientes, "Selecione um cliente", new {@class = "form-control" })
+                @*@Html.ValidationMessageFor(model => model.Carro, "", new { @class = "text-danger" })*@
             </div>
         </div>
 

@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Clientes</h2>
 
 <p>
     @Html.ActionLink("Cadastrar", "Cadastrar")
@@ -42,7 +42,7 @@
             @Html.DisplayFor(modelItem => item.Clicpf)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Clidatan)
+            <date-util format="dd/MM/yyyy">@Html.DisplayFor(modelItem => item.Clidatan)</date-util>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Cliender)

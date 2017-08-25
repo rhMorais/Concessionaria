@@ -15,7 +15,7 @@ namespace Concessionaria.Repositorio
             {
                 var cmd = contexto.ExecutaProcedure("INSERIR_VENDA");
                 cmd.Parameters.AddWithValue("@CLICPF", venda.Cliente.Clicpf);
-                cmd.Parameters.AddWithValue("@CARPLACA", venda.Carro.Carplaca);
+                cmd.Parameters.AddWithValue("@CARPLACA", venda.Carro.Carplaca.ToUpper());
                 cmd.Parameters.AddWithValue("@VENVALOR", venda.Venvalor);
                 cmd.Parameters.AddWithValue("@VENDATAV", venda.Vendatav);
                 cmd.ExecuteNonQuery();

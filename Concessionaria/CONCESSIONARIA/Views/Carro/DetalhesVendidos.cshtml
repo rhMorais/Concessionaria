@@ -4,11 +4,68 @@
     ViewBag.Title = "DetalhesVendidos";
 }
 
-<h2>Detalhe de Vendas</h2>
+<h2>Detalhe de Venda</h2>
 
 <div>
     <hr />
     <dl class="dl-horizontal">
+        
+        <dt>
+            Placa:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carro.Carplaca)
+        </dd>
+
+        <dt>
+            Modelo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carro.Carmodel)
+        </dd>
+
+        <dt>
+            Cor:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carro.Carcor)
+        </dd>
+
+        <dt>
+            Ano:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carro.Carano)
+        </dd>
+
+        <dt>
+            Marca:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carro.Carmarca)
+        </dd>
+
+        <dt>
+            Combustível:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carro.Carcombu)
+        </dd>
+
+        <dt>
+            Tipo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carro.Cartipo)
+        </dd>
+        <br/>
         <dt>
             ID:
         </dt>
@@ -32,13 +89,13 @@
         <dd>
             @Html.DisplayFor(model => model.Vendatav)
         </dd>
-    
+        <br />
         <dt>
             Nome Cliente:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Clinome)
+            @Html.DisplayFor(model => model.Cliente.Clinome)
         </dd>
 
         <dt>
@@ -46,7 +103,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Clicpf)
+            @Html.DisplayFor(model => model.Cliente.Clicpf)
         </dd>
 
         <dt>
@@ -54,45 +111,11 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Clitelef)
-        </dd>
-
-        <dt>
-            Placa:
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carplaca)
-        </dd>
-
-        <dt>
-            Modelo:
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carmodel)
-        </dd>
-
-        <dt>
-            Cor:
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carcor)
-        </dd>
-
-        <dt>
-            Ano:
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carano)
-        </dd>
-
+            @Html.DisplayFor(model => model.Cliente.Clitelef)
+        </dd>        
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+<p>    
+    @Html.ActionLink("Voltar", "Index")
 </p>

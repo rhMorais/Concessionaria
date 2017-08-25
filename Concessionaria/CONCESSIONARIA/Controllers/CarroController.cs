@@ -1,13 +1,13 @@
 ﻿using Concessionaria.Aplicacao.Aplicacoes;
 using Concessionaria.Aplicacao.Construtores;
 using Concessionaria.Dominio;
+using CONCESSIONARIA.ControleLogin;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
 {
-    [Authorize]
-    public class CarroController : Controller
+    public class CarroController : AuthController
     {
         private CarroAplicacao appCarro;
         private OpcinalAplicacao appOpcional;
@@ -101,9 +101,9 @@ namespace CONCESSIONARIA.Controllers
             return View(carro);
         }
 
-        public ActionResult DetalhesVendidos(string placa)
+        public ActionResult DetalhesVendidos(string id)
         {
-            var venda = appCarro.ListarDetalhesVendidos(placa);
+            var venda = appCarro.ListarDetalhesVendidos(id);
             if (venda == null)
                 return HttpNotFound();
             return View(venda);

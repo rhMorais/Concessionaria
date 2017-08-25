@@ -7,7 +7,7 @@ namespace Concessionaria.Dominio
     {
         public int Venid { get; set; }
 
-        [Required(ErrorMessage = "Preencha um cliente")]
+        [Required(ErrorMessage = "Preencha um Cliente")]
         public Cliente Cliente { get; set; }
 
         [Required(ErrorMessage = "Preencha um Carro")]

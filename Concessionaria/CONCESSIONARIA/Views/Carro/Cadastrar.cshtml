@@ -2,6 +2,10 @@
 @model Carro
 @{ ViewBag.Title = "Cadastrar Carro"; }
 
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<!-- Inclusão do Plugin jQuery Validation-->
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+
 <h2>Cadastrar</h2>
 
 
@@ -9,7 +13,7 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="form-horizontal" id="formCadastrar">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
