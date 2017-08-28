@@ -12,3 +12,10 @@ C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\ConcessionariaRepositorioA
 C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\Concessionaria.Repositorio.csprojResolveAssemblyReference.cache
 C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\ConcessionariaRepositorioADO.dll
 C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\ConcessionariaRepositorioADO.pdb
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaRepositorioADO\bin\Debug\ConcessionariaRepositorioADO.dll
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaRepositorioADO\bin\Debug\ConcessionariaRepositorioADO.pdb
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaRepositorioADO\bin\Debug\ConcessionariaDominio.dll
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaRepositorioADO\bin\Debug\ConcessionariaDominio.pdb
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\Concessionaria.Repositorio.csprojResolveAssemblyReference.cache
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\ConcessionariaRepositorioADO.dll
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\ConcessionariaRepositorioADO.pdb

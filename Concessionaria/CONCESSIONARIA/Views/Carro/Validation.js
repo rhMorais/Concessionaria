@@ -1,2 +1,0 @@
-﻿//Validação simples
-$("#formCadastrar").validate();

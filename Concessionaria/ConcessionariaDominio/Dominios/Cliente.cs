@@ -5,19 +5,19 @@ namespace Concessionaria.Dominio
 {
     public class Cliente
     {   
-        //[StringLength (12, MinimumLength = 9)]    
-        [Required(ErrorMessage = "Preencha o CPF do cliente")]
+        [StringLength(14, ErrorMessage = "O CPF deve conter 11 numeros")]    
+        [Required(ErrorMessage = "O campo CPF é obrigatório")]
         public string Clicpf { get; set; }
 
-        [Required(ErrorMessage = "Preencha o Nome do cliente")]
+        [Required(ErrorMessage = "O Nome do cliente é obrigatório")]
         public string Clinome{ get; set; }
 
-        [Required(ErrorMessage = "Preencha o Endereço do cliente")]
+        [Required(ErrorMessage = "O Endereço do cliente é obrigatório")]
         public string Cliender { get; set; }
 
         public string Clicidad { get; set; }
 
-        [StringLength (12, MinimumLength = 8)]
+        [StringLength (14, ErrorMessage = "Caso preencha o telefone ele deverá conter 10 ou 11 numeros", MinimumLength = 13)]
         [DataType(DataType.PhoneNumber)]        
         public string Clitelef { get; set; }
 

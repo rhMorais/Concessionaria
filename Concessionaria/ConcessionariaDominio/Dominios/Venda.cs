@@ -7,10 +7,10 @@ namespace Concessionaria.Dominio
     {
         public int Venid { get; set; }
 
-        [Required(ErrorMessage = "Preencha um Cliente")]
+        [Required(ErrorMessage = "Obrigatório escolher um cliente")]
         public Cliente Cliente { get; set; }
 
-        [Required(ErrorMessage = "Preencha um Carro")]
+        [Required(ErrorMessage = "Obrigatório escolher um carro")]
         public Carro Carro { get; set; }
 
         public decimal? Venvalor { get; set; }

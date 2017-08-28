@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="Clicpf">Carro:</label>
+            <label class="control-label col-md-2" for="Clicpf">Cliente:</label>
             <div class="col-md-10">
                @Html.DropDownListFor(model => model.Cliente.Clicpf, (List<SelectListItem>)ViewBag.clientes, "Selecione um cliente", new {@class = "form-control" })
                 @*@Html.ValidationMessageFor(model => model.Carro, "", new { @class = "text-danger" })*@

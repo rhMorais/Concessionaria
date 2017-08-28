@@ -8,3 +8,8 @@ C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\ConcessionariaDominio\bin\
 C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\ConcessionariaDominio\obj\Debug\Concessionaria.Dominio.csprojResolveAssemblyReference.cache
 C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\ConcessionariaDominio\obj\Debug\ConcessionariaDominio.dll
 C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\ConcessionariaDominio\obj\Debug\ConcessionariaDominio.pdb
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaDominio\bin\Debug\ConcessionariaDominio.dll
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaDominio\bin\Debug\ConcessionariaDominio.pdb
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaDominio\obj\Debug\Concessionaria.Dominio.csprojResolveAssemblyReference.cache
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaDominio\obj\Debug\ConcessionariaDominio.dll
+C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaDominio\obj\Debug\ConcessionariaDominio.pdb

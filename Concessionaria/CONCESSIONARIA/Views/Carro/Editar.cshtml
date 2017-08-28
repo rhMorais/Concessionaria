@@ -42,7 +42,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Carmarca">Marca:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Carmarca, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Carmarca, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars()" } })
                 @Html.ValidationMessageFor(model => model.Carmarca, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Carcor">Cor:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Carcor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Carcor, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars()" } })
                 @Html.ValidationMessageFor(model => model.Carcor, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Carano">Ano:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Carano, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Carano, new { htmlAttributes = new { @class = "form-control", onkeypress = "Nums()" } })
                 @Html.ValidationMessageFor(model => model.Carano, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -66,7 +66,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Carcombu">Combustível:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Carcombu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Carcombu, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars()" } })
                 @Html.ValidationMessageFor(model => model.Carcombu, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Cartipo">Tipo:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cartipo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Cartipo, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars()" } })
                 @Html.ValidationMessageFor(model => model.Cartipo, "", new { @class = "text-danger" })
             </div>
         </div>

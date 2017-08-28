@@ -3,8 +3,17 @@
 @{
     ViewBag.Title = "Cadastrar";
 }
-
 <h2>Cadastrar Cliente</h2>
+
+<script>
+    $(document).ready(function () {
+        $('#Clicpf').mask('000.000.000-00', { reverse: true });
+    });
+
+    $(document).ready(function () {
+        $('#Clitelef').mask('(00) 00000-0000', { reverse: true });
+    });
+</script>
 
 
 @using (Html.BeginForm()) 
@@ -18,15 +27,17 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Clinome">Nome:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clinome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Clinome, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars()" } })
                 @Html.ValidationMessageFor(model => model.Clinome, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        
+
         <div class="form-group">
             <label class="control-label col-md-2" for="Clicpf">CPF:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clicpf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Clicpf, new { htmlAttributes = new { @class = "form-control"} })
                 @Html.ValidationMessageFor(model => model.Clicpf, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +45,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Clidatan">Data de Nascimento:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clidatan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Clidatan, new { htmlAttributes = new { @class = "form-control"} })
                 @Html.ValidationMessageFor(model => model.Clidatan, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +53,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Cliender">Endereço:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cliender, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Cliender, new { htmlAttributes = new { @class = "form-control", onkeypress = "NumsNChars()" } })
                 @Html.ValidationMessageFor(model => model.Cliender, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +61,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Clicidad">Cidade:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clicidad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Clicidad, new { htmlAttributes = new { @class = "form-control", pattern = "^[a-zA-Z]+$" } })
                 @Html.ValidationMessageFor(model => model.Clicidad, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,7 +69,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Clitelef">Telefone:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clitelef, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Clitelef, new { htmlAttributes = new { @class = "form-control", pattern = "^[0-9]+$"  } })
                 @Html.ValidationMessageFor(model => model.Clitelef, "", new { @class = "text-danger" })
             </div>
         </div>     
