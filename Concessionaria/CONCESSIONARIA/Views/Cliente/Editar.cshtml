@@ -19,16 +19,17 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Clicpf">CPF:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clicpf, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
-                @Html.ValidationMessageFor(model => model.Clicpf, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Clicpf, new { htmlAttributes = new { id = "Clicpf", @class = "form-control", disabled = "disabled"} })
+                @Html.ValidationMessageFor(model => model.Clicpf, "", new { @class = "text-danger" })                                
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="Clinome">Nome:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clinome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Clinome, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars('#ErroClinome')" } })
                 @Html.ValidationMessageFor(model => model.Clinome, "", new { @class = "text-danger" })
+                <div id="ErroClinome"></div> 
             </div>
         </div>
 
@@ -43,24 +44,27 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Cliender">Endereço:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cliender, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Cliender, new { htmlAttributes = new { @class = "form-control", onkeypress = "NumsNChars('#ErroCliender')" } })
                 @Html.ValidationMessageFor(model => model.Cliender, "", new { @class = "text-danger" })
+                <div id="ErroCliender"></div> 
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="Clicidad">Cidade:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clicidad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Clicidad, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars('#ErroClicidad')" } })
                 @Html.ValidationMessageFor(model => model.Clicidad, "", new { @class = "text-danger" })
+                <div id="ErroClicidad"></div> 
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="Clitelef">Telefone:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clitelef, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Clitelef, new { htmlAttributes = new { @class = "form-control" }, onkeypress = "Nums('#ErroClitelef')" })
                 @Html.ValidationMessageFor(model => model.Clitelef, "", new { @class = "text-danger" })
+                <div id="ErroClitelef"></div> 
             </div>
         </div>
         

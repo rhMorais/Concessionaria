@@ -5,14 +5,15 @@ namespace Concessionaria.Dominio
 {
     public class Cliente
     {   
-        [StringLength(14, ErrorMessage = "O CPF deve conter 11 numeros")]    
+            
         [Required(ErrorMessage = "O campo CPF é obrigatório")]
+        //[StringLength(14, ErrorMessage = "O CPF deve conter 11 numeros", MinimumLength = 14)]
         public string Clicpf { get; set; }
 
-        [Required(ErrorMessage = "O Nome do cliente é obrigatório")]
+        [Required(ErrorMessage = "O Nome do Cliente é obrigatório, e deve conter apenas letras")]
         public string Clinome{ get; set; }
 
-        [Required(ErrorMessage = "O Endereço do cliente é obrigatório")]
+        [Required(ErrorMessage = "O campo Endereço é obrigatório")]
         public string Cliender { get; set; }
 
         public string Clicidad { get; set; }

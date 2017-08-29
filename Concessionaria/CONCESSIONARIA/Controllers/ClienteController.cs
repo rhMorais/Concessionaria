@@ -2,6 +2,7 @@
 using Concessionaria.Aplicacao.Construtores;
 using Concessionaria.Dominio;
 using CONCESSIONARIA.ControleLogin;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
@@ -31,6 +32,7 @@ namespace CONCESSIONARIA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Cliente cliente)
         {
+            
             if (ModelState.IsValid)
             {
                 appCliente.Salvar(cliente);

@@ -2,6 +2,7 @@
 using Concessionaria.Dominio.Contrato;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Concessionaria.Repositorio
 {
@@ -10,16 +11,16 @@ namespace Concessionaria.Repositorio
         private Contexto contexto;
 
         private void Inserir(Cliente cliente)
-        {
+        {            
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("INSERIR_CLIENTE");
-                cmd.Parameters.AddWithValue("@CLICPF", cliente.Clicpf.ToUpper());
+                cmd.Parameters.AddWithValue("@CLICPF", cliente.Clicpf);
                 cmd.Parameters.AddWithValue("@CLINOME", cliente.Clinome.ToUpper());
                 cmd.Parameters.AddWithValue("@CLIENDER", cliente.Cliender.ToUpper());
-                cmd.Parameters.AddWithValue("@CLITELEF", cliente.Clitelef.ToUpper());
+                cmd.Parameters.AddWithValue("@CLITELEF", cliente.Clitelef);
                 cmd.Parameters.AddWithValue("@CLIDATAN", cliente.Clidatan);
-                cmd.Parameters.AddWithValue("@CLICIDAD", cliente.Clicidad.ToUpper());
+                cmd.Parameters.AddWithValue("@CLICIDAD", cliente.Clicidad?.ToUpper());
                 cmd.ExecuteNonQuery();
             }
         }
@@ -34,7 +35,7 @@ namespace Concessionaria.Repositorio
                 cmd.Parameters.AddWithValue("@CLIENDER", cliente.Cliender.ToUpper());
                 cmd.Parameters.AddWithValue("@CLITELEF", cliente.Clitelef);
                 cmd.Parameters.AddWithValue("@CLIDATAN", cliente.Clidatan);
-                cmd.Parameters.AddWithValue("@CLICIDAD", cliente.Clicidad.ToUpper());
+                cmd.Parameters.AddWithValue("@CLICIDAD", cliente.Clicidad?.ToUpper());
                 cmd.ExecuteNonQuery();
             }
         }
@@ -98,6 +99,7 @@ namespace Concessionaria.Repositorio
 
         public void Salvar(Cliente cliente)
         {
+            cliente.Clicpf = Regex.Replace(cliente.Clicpf, "[-.]+", "");
                                             //Expressão Lambda
             var penis = ListarTodos().Where(x => x.Clicpf == cliente.Clicpf);
             if (penis.Any())

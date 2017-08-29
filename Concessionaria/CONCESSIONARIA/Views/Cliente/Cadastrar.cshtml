@@ -3,18 +3,8 @@
 @{
     ViewBag.Title = "Cadastrar";
 }
-<script src="~/Scripts/MinhasValidacoes.js"></script>
+
 <h2>Cadastrar Cliente</h2>
-
-<script>
-    $(document).ready(function () {
-        $('#Clicpf').mask('000.000.000-00', { reverse: true });
-    });
-
-    $(document).ready(function () {
-        $('#Clitelef').mask('(00) 00000-0000', { reverse: true });
-    });
-</script>
 
 
 @using (Html.BeginForm()) 
@@ -28,18 +18,18 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Clinome">Nome:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clinome, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars()" } })
+                @Html.EditorFor(model => model.Clinome, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars('#ErroClinome')" } })                
                 @Html.ValidationMessageFor(model => model.Clinome, "", new { @class = "text-danger" })
-            </div>
+                <div id="ErroClinome"></div> 
+            </div>                       
         </div>
-
         
-
         <div class="form-group">
             <label class="control-label col-md-2" for="Clicpf">CPF:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clicpf, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.EditorFor(model => model.Clicpf, new { htmlAttributes = new { @class = "form-control", onkeypress = "Nums('#ErroClicpf')" } })
                 @Html.ValidationMessageFor(model => model.Clicpf, "", new { @class = "text-danger" })
+                <div id="ErroClicpf"></div> 
             </div>
         </div>
 
@@ -54,24 +44,27 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Cliender">Endereço:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cliender, new { htmlAttributes = new { @class = "form-control", onkeypress = "NumsNChars()" } })
+                @Html.EditorFor(model => model.Cliender, new { htmlAttributes = new { @class = "form-control", onkeypress = "NumsNChars('#ErroCliender')" } })
                 @Html.ValidationMessageFor(model => model.Cliender, "", new { @class = "text-danger" })
+                <div id="ErroCliender"></div> 
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="Clicidad">Cidade:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clicidad, new { htmlAttributes = new { @class = "form-control", pattern = "^[a-zA-Z]+$" } })
+                @Html.EditorFor(model => model.Clicidad, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars('#ErroClicidad')" } })
                 @Html.ValidationMessageFor(model => model.Clicidad, "", new { @class = "text-danger" })
+                <div id="ErroClicidad"></div> 
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="Clitelef">Telefone:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clitelef, new { htmlAttributes = new { @class = "form-control", pattern = "^[0-9]+$"  } })
+                @Html.EditorFor(model => model.Clitelef, new { htmlAttributes = new { @class = "form-control", onkeypress = "Nums('#ErroClitelef')"  } })
                 @Html.ValidationMessageFor(model => model.Clitelef, "", new { @class = "text-danger" })
+                <div id="ErroClitelef"></div> 
             </div>
         </div>     
 
