@@ -8,9 +8,11 @@ namespace Concessionaria.Repositorio
     public class VendaRepositorioADO:IRepositorio<Venda>
     {
         private Contexto contexto;
+       
 
         private void Inserir(Venda venda)
         {
+            if (venda.Vendatav == null) venda.Vendatav = DateTime.Today;
             using (contexto = new Contexto())
             {
                 var cmd = contexto.ExecutaProcedure("INSERIR_VENDA");

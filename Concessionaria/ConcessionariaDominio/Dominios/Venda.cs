@@ -13,8 +13,9 @@ namespace Concessionaria.Dominio
         [Required(ErrorMessage = "Obrigatório escolher um carro")]
         public Carro Carro { get; set; }
 
+        [Required(ErrorMessage = "Informe o valor da negociação")]
         public decimal? Venvalor { get; set; }
-
+        
         [DataType(DataType.Date)]
         public DateTime? Vendatav { get; set; }
     }

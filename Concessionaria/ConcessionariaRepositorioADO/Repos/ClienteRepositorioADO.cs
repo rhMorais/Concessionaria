@@ -64,7 +64,7 @@ namespace Concessionaria.Repositorio
                         {
                             Clicpf = reader.ReadAsString("CLICPF"),
                             Clicidad = reader.ReadAsStringNull("CLICIDAD"),
-                            Clidatan = reader.ReadAsDateTimeNull("CLIDATAN"),
+                            Clidatan = reader.ReadAsDateTime("CLIDATAN"),
                             Cliender = reader.ReadAsString("CLIENDER"),
                             Clinome = reader.ReadAsString("CLINOME"),
                             Clitelef = reader.ReadAsStringNull("CLITELEF")
@@ -87,7 +87,7 @@ namespace Concessionaria.Repositorio
                             {
                                 Clicpf = reader.ReadAsString("CLICPF"),
                                 Clicidad = reader.ReadAsStringNull("CLICIDAD"),
-                                Clidatan = reader.ReadAsDateTimeNull("CLIDATAN"),
+                                Clidatan = reader.ReadAsDateTime("CLIDATAN"),
                                 Cliender = reader.ReadAsString("CLIENDER"),
                                 Clinome = reader.ReadAsString("CLINOME"),
                                 Clitelef = reader.ReadAsStringNull("CLITELEF")

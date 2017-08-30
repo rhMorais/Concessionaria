@@ -1,10 +1,8 @@
 ﻿@using Concessionaria.Dominio;
 @model Carro
-@{ ViewBag.Title = "Cadastrar Carro"; }
+@{ ViewBag.Title = "Cadastrar Carro";
+}
 
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<!-- Inclusão do Plugin jQuery Validation-->
-<script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
 
 <h2>Cadastrar</h2>
 
@@ -17,86 +15,99 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Carplaca">Placa:</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Carplaca, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Carplaca, "", new { @class = "text-danger" })
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label class="control-label col-md-3" for="Carplaca">Placa:</label>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Carplaca, new { htmlAttributes = new { @class = "form-control", onkeypress = "NumsNChars('#ErroCarplaca')" } })
+                    @Html.ValidationMessageFor(model => model.Carplaca, "", new { @class = "text-danger" })
+                    <div id="ErroCarplaca"></div>
+                </div>
             </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-3" for="Carmodel">Modelo:</label>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Carmodel, new { htmlAttributes = new { @class = "form-control", onkeypress = "NumsNChars('#ErroCarmodel')" } })
+                    @Html.ValidationMessageFor(model => model.Carmodel, "", new { @class = "text-danger" })
+                    <div id="ErroCarmodel"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-3" for="Carmarca">Marca:</label>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Carmarca, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars('#ErroCarmarca')" } })
+                    @Html.ValidationMessageFor(model => model.Carmarca, "", new { @class = "text-danger" })
+                    <div id="ErroCarmarca"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-3" for="Carcor">Cor:</label>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Carcor, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars('#ErroCarcor')" } })
+                    @Html.ValidationMessageFor(model => model.Carcor, "", new { @class = "text-danger" })
+                    <div id="ErroCarcor"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-3" for="Carano">Ano:</label>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Carano, new { htmlAttributes = new { @class = "form-control", onkeypress = "Nums('#ErroCarano')" } })
+                    @Html.ValidationMessageFor(model => model.Carano, "", new { @class = "text-danger" })
+                    <div id="ErroCarano"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-3" for="Carcombu">Combustível:</label>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Carcombu, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars('#ErroCarcombu')" } })
+                    @Html.ValidationMessageFor(model => model.Carcombu, "", new { @class = "text-danger" })
+                    <div id="ErroCarcombu"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-3" for="Cartipo">Tipo:</label>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Cartipo, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars('#ErroCartipo')" } })
+                    @Html.ValidationMessageFor(model => model.Cartipo, "", new { @class = "text-danger" })
+                    <div id="ErroCartipo"></div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Carmodel">Modelo:</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Carmodel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Carmodel, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Carmarca">Marca:</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Carmarca, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Carmarca, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Carcor">Cor:</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Carcor, new { htmlAttributes = new { @class = "form-control", onkeypress="Chars()" } })
-                @Html.ValidationMessageFor(model => model.Carcor, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Carano">Ano:</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Carano, new { htmlAttributes = new { @class = "form-control", onkeypress = "Nums()" } })
-                @Html.ValidationMessageFor(model => model.Carano, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Carcombu">Combustível:</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Carcombu, new { htmlAttributes = new { @class = "form-control" }, onkeypress = "Chars()" })
-                @Html.ValidationMessageFor(model => model.Carcombu, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Cartipo">Tipo:</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cartipo, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars()" } })
-                @Html.ValidationMessageFor(model => model.Cartipo, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
 
-
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Caropcio">Opcinais:</label>
+        <div class="col-md-4 form-group">
+            <label class="control-label col-md-3" for="Caropcio">Opcionais:</label>
             <div class="col-md-10">
                 @foreach (var item in (IEnumerable<Opcional>)ViewBag.Opcional)
                 {
-                    <input type="checkbox" name="opcionais" id="Opcional_@item.Opcid" value="@item.Opcid" /><label for="Opcional_@item.Opcid">@item.Opcdescr</label> <br>
-                    @*@Html.DropDownList("Opcional", "Selecione")*@
+                    <div>
+                        <input type="checkbox" name="opcionais" id="Opcional_@item.Opcid" value="@item.Opcid" />
+                        <label for="Opcional_@item.Opcid"> @item.Opcdescr </label>
+                    </div>
                 }
-           </div>
-        </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Cadastrar" class="btn btn-default" />
-                </div>
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cadastrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }
 <div>
-@Html.ActionLink("Voltar", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {
-@Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval")
 }

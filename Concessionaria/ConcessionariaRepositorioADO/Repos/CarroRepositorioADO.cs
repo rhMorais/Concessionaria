@@ -23,7 +23,7 @@ namespace Concessionaria.Repositorio
                     {
                         using (var cmd = contexto.ExecutaProcedure("INSERIR_CARRO_OPCIONAL"))
                         {
-                            cmd.Parameters.AddWithValue("@CARPLACA", carro.Carplaca);
+                            cmd.Parameters.AddWithValue("@CARPLACA", carro.Carplaca.ToUpper());
                             cmd.Parameters.AddWithValue("@OPCID", item.Opcid);
                             cmd.ExecuteNonQuery();
                         }
@@ -40,8 +40,8 @@ namespace Concessionaria.Repositorio
                 cmd.Parameters.AddWithValue("@CARMODEL", carro.Carmodel.ToUpper());
                 cmd.Parameters.AddWithValue("@CARMARCA", carro.Carmarca.ToUpper());
                 cmd.Parameters.AddWithValue("@CARANO", carro.Carano);
-                cmd.Parameters.AddWithValue("@CARTIPO", carro.Cartipo.ToUpper());
-                cmd.Parameters.AddWithValue("@CARCOMBU", carro.Carcombu.ToUpper());
+                cmd.Parameters.AddWithValue("@CARTIPO", carro.Cartipo?.ToUpper());
+                cmd.Parameters.AddWithValue("@CARCOMBU", carro.Carcombu?.ToUpper());
                 cmd.Parameters.AddWithValue("@CARCOR", carro.Carcor.ToUpper());
                 cmd.ExecuteNonQuery();
             }
@@ -56,8 +56,8 @@ namespace Concessionaria.Repositorio
                 cmd.Parameters.AddWithValue("@CARMODEL", carro.Carmodel.ToUpper());
                 cmd.Parameters.AddWithValue("@CARMARCA", carro.Carmarca.ToUpper());
                 cmd.Parameters.AddWithValue("@CARANO", carro.Carano);
-                cmd.Parameters.AddWithValue("@CARTIPO", carro.Cartipo.ToUpper());
-                cmd.Parameters.AddWithValue("@CARCOMBU", carro.Carcombu.ToUpper());
+                cmd.Parameters.AddWithValue("@CARTIPO", carro.Cartipo?.ToUpper());
+                cmd.Parameters.AddWithValue("@CARCOMBU", carro.Carcombu?.ToUpper());
                 cmd.Parameters.AddWithValue("@CARCOR", carro.Carcor.ToUpper());
                 cmd.ExecuteNonQuery();
             }

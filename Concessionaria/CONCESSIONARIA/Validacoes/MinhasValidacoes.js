@@ -1,9 +1,10 @@
 ﻿// MÁSCARAS; 
-jQuery( function ($) {
+$(document).ready(function () {
     $('#Clicpf').mask('000.000.000-00');
     $('#Clitelef').mask('(00)00000-0000');
+    $('#Carplaca').mask('AAA-9999');
+    $('#Carano').mask('9999/9999');
 });
-
 
 
 //ESPECIFICACAO DE CARACTERES
@@ -21,7 +22,7 @@ function NumsNChars(string) {
     var evt = window.event;
     var tec = evt.keyCode;
     console.log(tec);
-    if (!((tec == 44) || (tec == 32) || (tec > 47 && tec < 58) ||
+    if (!((tec == 44 || tec == 46) || (tec == 32) || (tec > 47 && tec < 58) ||
         (tec > 64 && tec < 91) || (tec > 96 && tec < 123))) {        
         evt.preventDefault();
         $(string).errorMessage("Só é permitido numeros ou letras neste campo!", 5000);

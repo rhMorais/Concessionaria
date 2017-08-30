@@ -4,16 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<script>
-$(document).ready(function(){
-
-    $(".Clicpf").mask("000.000.000-00");
-    
-});
-</script>
-
 <h2>Clientes</h2>
 
+
+<script>
+    $(document).ready(function () {
+        $('.Clicpf').mask('000.000.000-00');        
+    });
+</script>
 <p>
     @Html.ActionLink("Cadastrar", "Cadastrar")
 </p>
@@ -46,11 +44,11 @@ $(document).ready(function(){
         <td>
             @Html.DisplayFor(modelItem => item.Clinome)            
         </td>
-        <td id="Clicpf">
+        <td class = "Clicpf">
             @Html.DisplayFor(modelItem => item.Clicpf)
         </td>
         <td class="Clidatan">
-            @*<date-util format="dd/MM/yyyy">*@@Html.DisplayFor(modelItem => item.Clidatan)@*</date-util>*@
+            @Html.DisplayFor(modelItem => item.Clidatan)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Cliender)

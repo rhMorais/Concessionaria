@@ -49,8 +49,8 @@ namespace CONCESSIONARIA.Controllers
                 for (var i = 0; i < opcionais.Length; i++)
                     caropcio.Add(new Opcional { Opcid = opcionais[i] });
 
-            }            
-
+            }
+            carro.Caropcio = caropcio;
             if (ModelState.IsValid)
             {
                 appCarro.Salvar(carro);                

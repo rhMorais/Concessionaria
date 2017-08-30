@@ -12,8 +12,7 @@ namespace Concessionaria.Dominio
         [Required(ErrorMessage = "Preencha o modelo do carro")]
         public string Carmodel { get; set; }
 
-        [Required(ErrorMessage = "Preencha a marca do carro")]
-        [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "[Sem informacao]")]
+        [Required(ErrorMessage = "Preencha a marca do carro")]        
         public string Carmarca { get; set; }
 
         [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "[Sem informacao]")]
@@ -25,7 +24,7 @@ namespace Concessionaria.Dominio
         [Required(ErrorMessage = "Preencha a cor do carro")]
         public string Carcor { get; set; }
 
-        [StringLength(9)]
+        [StringLength(9, ErrorMessage = "Preencha o ano de fabricação e de modelo", MinimumLength = 9)]
         [Required(ErrorMessage = "Preencha o ano do carro")]
         public string Carano { get; set; }
 
