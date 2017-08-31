@@ -39,3 +39,5 @@ function Chars(string) {
         $(string).errorMessage("Só é permitido letras neste campo!", 5000);
     }
 }
+
+

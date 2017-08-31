@@ -1,21 +1,25 @@
-﻿using CONCESSIONARIA.ControleLogin;
+﻿using Concessionaria.Aplicacao.Aplicacoes;
+using CONCESSIONARIA.ControleLogin;
 using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
 {
     public class HomeController : AuthController
     {
-        //private LoginAplicacao appLogin;
-
-        //public HomeController()
-        //{
-        //    appLogin = LoginAplicacaoConstrutor.LoginAplicacao();
-        //}
+        private ExcelAplicacao appExcel;       
 
         public ActionResult Index()
-        {
+        {           
             return View();
         }
+
+
+        public void gerarExcel()
+        {                        
+            appExcel.GerarExcel();
+            
+        }
+
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]

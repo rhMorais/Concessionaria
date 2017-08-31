@@ -19,3 +19,5 @@ C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaReposit
 C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\Concessionaria.Repositorio.csprojResolveAssemblyReference.cache
 C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\ConcessionariaRepositorioADO.dll
 C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\ConcessionariaRepositorioADO\obj\Debug\ConcessionariaRepositorioADO.pdb
+C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\ConcessionariaRepositorioADO\bin\Debug\EPPlus.dll
+C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\ConcessionariaRepositorioADO\bin\Debug\EPPlus.xml

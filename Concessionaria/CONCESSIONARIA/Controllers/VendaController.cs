@@ -25,12 +25,12 @@ namespace CONCESSIONARIA.Controllers
             return View(listadeVendas);
         }
 
-        public ActionResult GerarExcel()
-        {
-            var vendas = appVenda.ListarTodos();
-            return View(vendas);
-            GerarExcel(vendas);
-        }
+        //public ActionResult GerarExcel()
+        //{
+        //    var vendas = appVenda.ListarTodos();
+        //    return View(vendas);
+        //    GerarExcel(vendas);
+        //}
 
         public ActionResult Cadastrar()
         {

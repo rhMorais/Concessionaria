@@ -1,1 +1,27 @@
 ﻿
+@{ 
+    ViewBag.Title = "Inicio";    
+}
+
+
+
+<br /><br />
+
+
+<div>
+    <input type="submit" id="Excel" value="Gerar Excel"/> 
+</div>
+
+<div id="local"></div>
+
+<script>    
+        $('#Excel').click(function () {
+            var url = "/Home/gerarExcel";
+            $.get(url, null, function () {                
+                $('#local').successMessage("O download iniciará em instantes...", 5000);
+            });
+        })    
+</script>
+
+   
+

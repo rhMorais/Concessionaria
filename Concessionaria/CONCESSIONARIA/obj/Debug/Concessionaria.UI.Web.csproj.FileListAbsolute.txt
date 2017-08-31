@@ -256,3 +256,5 @@ C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\CONCESSIONARIA\bin\Mi
 C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\CONCESSIONARIA\obj\Debug\Concessionaria.UI.Web.csprojResolveAssemblyReference.cache
 C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\CONCESSIONARIA\obj\Debug\CONCESSIONARIA.dll
 C:\Users\Rafael\Desktop\Concessionaria 25 8\Concessionaria\CONCESSIONARIA\obj\Debug\CONCESSIONARIA.pdb
+C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\CONCESSIONARIA\bin\EPPlus.dll
+C:\Users\Rafael\Desktop\Concessionaria\Concessionaria\CONCESSIONARIA\bin\EPPlus.xml

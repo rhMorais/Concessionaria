@@ -42,11 +42,13 @@
   <ItemGroup>
     <Compile Include="Aplicacoes\CarroAplicacao.cs" />
     <Compile Include="Aplicacoes\ClienteAplicacao.cs" />
+    <Compile Include="Aplicacoes\ExcelAplicacao.cs" />
     <Compile Include="Aplicacoes\LoginAplicacao.cs" />
     <Compile Include="Aplicacoes\OpcinalAplicacao.cs" />
     <Compile Include="Aplicacoes\VendaAplicacao.cs" />
     <Compile Include="Construtores\CarroAplicacaoConstrutor.cs" />
     <Compile Include="Construtores\ClienteAplicacaoConstrutor.cs" />
+    <Compile Include="Construtores\ExcelConstrutor.cs" />
     <Compile Include="Construtores\LoginAplicacaoConstrutor.cs" />
     <Compile Include="Construtores\OpcionalAplicacaoConstrutor.cs" />
     <Compile Include="Construtores\VendaAplicacaoConstrutor.cs" />
