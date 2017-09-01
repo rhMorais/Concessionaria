@@ -84,12 +84,17 @@ namespace Concessionaria.Repositorio
                                 Venvalor = reader.ReadAsDecimalNull("VENVALOR"),
                                 Cliente = new Cliente
                                 {
-                                    Clinome = reader.ReadAsString("CLINOME")
+                                    Clinome = reader.ReadAsString("CLINOME"),
+                                    Clicpf =  reader.ReadAsString("CLICPF")
+
+                                    
                                 },
                                 Carro = new Carro
                                 {
                                     Carmodel = reader.ReadAsString("CARMODEL"),
-                                    Carplaca = reader.ReadAsString("CARPLACA")
+                                    Carplaca = reader.ReadAsString("CARPLACA"),
+                                    Carano = reader.ReadAsString("CARANO"),
+                                    Carcor = reader.ReadAsString("CARCOR")
                                 }
                             });
                         } while (reader.Read());

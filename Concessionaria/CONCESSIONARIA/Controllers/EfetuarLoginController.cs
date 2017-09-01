@@ -26,7 +26,7 @@ namespace CONCESSIONARIA.Controllers
             if (appLogin.AutenticarUsuario(login))
             {
                 Session["UsuarioLogado"] = login.Logusuar;
-                return RedirectToAction("Index", "Venda");
+                return RedirectToAction("Index", "Home");
             }
             return View(login);
         }        

@@ -5,16 +5,16 @@ namespace Concessionaria.Aplicacao.Aplicacoes
 
     public class ExcelAplicacao
     {
-        private readonly ExcelRepositorio repositorio;
+        private readonly ExcelRepositorio _repositorio;
 
         public ExcelAplicacao(ExcelRepositorio repo)
         {
-            repositorio = repo;
+            _repositorio = repo;
         }
 
         public void GerarExcel()
         {
-            repositorio.GerarExcel();
+            _repositorio.GerarExcel();
         }
     
     }
