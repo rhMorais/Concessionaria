@@ -16,6 +16,11 @@ namespace CONCESSIONARIA.Controllers
         }
 
         public ActionResult Index()
+        {            
+            return View();
+        }
+
+        public ActionResult Listar()
         {
             var listadeLogins = appLogin.ListarTodos();
             return View(listadeLogins);
@@ -26,16 +31,15 @@ namespace CONCESSIONARIA.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Cadastrar(Login login)
+        [HttpPost]        
+        public ActionResult CadastrarLogin(Login login)
         {
             if (ModelState.IsValid)
             {
                 appLogin.Salvar(login);
-                return RedirectToAction("Index");
+                return Content("Login salvo com sucesso!");
             }
-            return View(login);
+            return Content("Erro no cadastro de login!");
         }
 
         public ActionResult Editar(string id)
@@ -43,21 +47,20 @@ namespace CONCESSIONARIA.Controllers
             var login = appLogin.ListarPorId(id);
             if (login == null)
             {
-                return HttpNotFound();
+                return Content("Login não encontrado");
             }
             return View(login);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Editar(Login login)
+        [HttpPost]        
+        public ActionResult EditarLogin(Login login)
         {
             if (ModelState.IsValid)
             {
                 appLogin.Salvar(login);
-                return RedirectToAction("Index");
+                return Content("Senha alterada com sucesso");
             }
-            return View(login);
+            return Content("Erro ao editar senha!");
         }
 
         public ActionResult Detalhes(string id)
@@ -65,7 +68,7 @@ namespace CONCESSIONARIA.Controllers
             var login = appLogin.ListarPorId(id);
             if (login == null)
             {
-                return HttpNotFound();
+                return Content("Login não encontrado!");
             }
             return View(login);
         }
@@ -75,18 +78,20 @@ namespace CONCESSIONARIA.Controllers
             var login = appLogin.ListarPorId(id);
             if (login == null)
             {
-                return HttpNotFound();
+                return Content("Login não encontrado!");
             }
             return View(login);
         }
 
-        [HttpPost, ActionName("Excluir")]
-        [ValidateAntiForgeryToken]
-        public ActionResult ExcluirConfirmados(string id)
+        [HttpPost]        
+        public ActionResult ExcluirLogin(string id)
         {
             var login = appLogin.ListarPorId(id);
-            appLogin.Excluir(login);
-            return RedirectToAction("Index");
+            if (login == null)
+            {
+                return Content("Login não encontrado!");
+            }
+            return Content("Login excluído com sucesso!");
         }
     }
 }

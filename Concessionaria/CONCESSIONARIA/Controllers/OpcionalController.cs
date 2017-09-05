@@ -18,6 +18,11 @@ namespace CONCESSIONARIA.Controllers
 
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult Listar()
+        {
             var listadeOpcionais = appOpcional.ListarTodos();
             return View(listadeOpcionais);
         }
@@ -27,18 +32,7 @@ namespace CONCESSIONARIA.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        // public ActionResult Cadastrar(Opcional opcional)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        appOpcional.Salvar(opcional);
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(opcional);
-        //}
-
+        
         [HttpPost]
         public ActionResult CadastrarOpcional(Opcional opcional)
         {
@@ -58,7 +52,7 @@ namespace CONCESSIONARIA.Controllers
             var opcional = appOpcional.ListarPorId(id);
             if(opcional == null)
             {
-                return HttpNotFound();
+                return Content("Opcional não encontrado!");
             }
             return View(opcional);
         }
@@ -74,24 +68,14 @@ namespace CONCESSIONARIA.Controllers
             return Content("Erro na edição");
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Editar(Opcional opcional)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        appOpcional.Salvar(opcional);
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(opcional);
-        //}
+       
 
         public ActionResult Detalhes(string id)
         {
             var opcional = appOpcional.ListarPorId(id);
             if (opcional == null)
             {
-                return HttpNotFound();
+                return Content("Opcional não encontrado");
             }
             return View(opcional);
         }
@@ -101,18 +85,53 @@ namespace CONCESSIONARIA.Controllers
             var opcional = appOpcional.ListarPorId(id);
             if(opcional == null)
             {
-                return HttpNotFound();
+                return Content("Opcional não encontrado!");
             }
             return View(opcional);
         }
-
-        [HttpPost, ActionName("Excluir")]
-        [ValidateAntiForgeryToken]
-        public ActionResult ExcluirConfirmados(string id)
+        
+        public ActionResult ExcluirOpcional(string id)
         {
             var opcional = appOpcional.ListarPorId(id);
+            if (opcional == null)
+            {
+                return Content("Erro na exclusão");
+            }
             appOpcional.Excluir(opcional);
-            return RedirectToAction("Index");
+            return Content("Opcional exluído");
         }
     }
+
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    // public ActionResult Cadastrar(Opcional opcional)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        appOpcional.Salvar(opcional);
+    //        return RedirectToAction("Index");
+    //    }
+    //    return View(opcional);
+    //}
+
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public ActionResult Editar(Opcional opcional)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        appOpcional.Salvar(opcional);
+    //        return RedirectToAction("Index");
+    //    }
+    //    return View(opcional);
+    //}
+
+    //[HttpPost, ActionName("Excluir")]
+    //[ValidateAntiForgeryToken]
+    //public ActionResult ExcluirConfirmados(string id)
+    //{
+    //var opcional = appOpcional.ListarPorId(id);
+    //appOpcional.Excluir(opcional);
+    //return RedirectToAction("Index");
+    //}
 }

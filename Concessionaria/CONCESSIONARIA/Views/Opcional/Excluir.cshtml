@@ -1,8 +1,5 @@
 ﻿@model Concessionaria.Dominio.Opcional
-
-@{
-    ViewBag.Title = "Excluir";
-}
+@{ Layout = null; }
 
 <h2>Excluir Opcional</h2>
 
@@ -28,12 +25,17 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    <div>
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Excluir" class="btn btn-default" /> |
-            @Html.ActionLink("Voltar", "Index")
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Excluir" class="btn btn-default" id="submit" onclick="OpcionalJs.excluir(@Model.Opcid);" />
+                <div id="Msgopcional"></div>
+            </div>
         </div>
-    }
+    </div>
+    <div>
+        <a href="#" onclick="OpcionalJs.voltarInicio()">Voltar</a>
+    </div>
 </div>

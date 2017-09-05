@@ -1,39 +1,19 @@
-﻿@model IEnumerable<Concessionaria.Dominio.Login>
+﻿@{ ViewBag.Title = "Index"; }
 
-@{
-    ViewBag.Title = "Index";
-}
+<script src="~/Validacoes/LoginJs.js?d=@DateTime.Now.Ticks" type="text/javascript"></script>
+<script>
+    LoginJs.init({
+        listar: '@Url.Action("Listar")',
+        novoCadastro: '@Url.Action("Cadastrar")',
+        cadastrar: '@Url.Action("CadastrarLogin")',
+        novaEdicao: '@Url.Action("Editar")',
+        editar: '@Url.Action("EditarLogin")',
+        detalhar: '@Url.Action("Detalhes")',
+        novaExclusao: '@Url.Action("Excluir")',
+        excluir: '@Url.Action("ExcluirLogin")'
+    });
+</script>
 
-<h2>Index Login</h2>
-
-<p>
-    @Html.ActionLink("Cadastrar", "Cadastrar")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Usuário
-        </th>
-        <th>
-            Senha
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Logusuar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Logsenha)
-        </td>
-        <td>
-            @Html.ActionLink("Editar senha", "Editar", new { id=item.Logusuar}) |
-            @Html.ActionLink("Detalhes", "Detalhes", new {  id=item.Logusuar }) |
-            @Html.ActionLink("Excluir", "Excluir", new { id=item.Logusuar })
-        </td>
-    </tr>
-}
-
-</table>
+<h1>Logins:</h1>
+<div id="divGrid"><img src="https://media.tenor.com/images/d6cd5151c04765d1992edfde14483068/tenor.gif" style="width:100px; height:100px; margin: 0 auto; display: block;"></div>
+<div id="divDados"></div>

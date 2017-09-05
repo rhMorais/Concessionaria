@@ -1,13 +1,9 @@
 ﻿@model IEnumerable<Concessionaria.Dominio.Opcional>
-
-@{
-    Layout = null;
-}
+@{ Layout = null; }
 
 <h2>Lista de Opcionais</h2>
 <p>
-    <a href="#" onclick="OpcionalJs.novoCadastro('@Url.Action("Cadastrar")')">Novo Opcional</a>
-    @*@Html.ActionLink("Novo Opcional", "Cadastrar")*@
+    <a href="#" onclick="OpcionalJs.novoCadastro()">Novo Opcional</a>
 </p>
 <table class="table">
     <tr>
@@ -28,9 +24,12 @@
                 @Html.DisplayFor(modelItem => item.Opcdescr)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Editar", new { id=item.Opcid}) |
-                @Html.ActionLink("Detalhes", "Detalhes", new {id=item.Opcid}) |
-                @Html.ActionLink("Excluir", "Excluir", new { id=item.Opcid  })
+                <a href="#" onclick="OpcionalJs.novaEdicao(@item.Opcid)">Editar</a> |
+                <a href="#" onclick="OpcionalJs.detalhar(@item.Opcid)">Detalhar</a> |
+                <a href="#" onclick="OpcionalJs.novaExlusao(@item.Opcid)">Excluir</a>
+                @*@Html.ActionLink("Editar", "OpcionalJs.editar()", new {id = item.Opcid}) |
+                @Html.ActionLink("Detalhes", "Detalhes", new {id = item.Opcid}) |
+                @Html.ActionLink("Excluir", "Excluir", new {id = item.Opcid})*@
             </td>
         </tr>
     }

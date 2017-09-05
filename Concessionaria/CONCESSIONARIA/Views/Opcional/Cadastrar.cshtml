@@ -1,8 +1,5 @@
 ﻿@model Concessionaria.Dominio.Opcional
-@{
-    ViewBag.Title = "Cadastrar";
-    Layout = null;
-}
+@{ Layout = null; }
 
 <h2>Cadastrar Opcional</h2>
 
@@ -26,7 +23,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Cadastrar" class="btn btn-default" id="submit" disabled="disabled" onclick="OpcionalJs.cadastrar('@Url.Action("CadastrarOpcional")');" />
+                <input type="button" value="Cadastrar" class="btn btn-default" id="submit" disabled="disabled" onclick="OpcionalJs.cadastrar()" />
                 <div id="Msgopcional"></div>
             </div>
         </div>
@@ -34,7 +31,7 @@
 </div>
 
 <div>
-    @Html.ActionLink("Voltar", "Index")
+    <a href="#" onclick="OpcionalJs.voltarInicio()">Voltar</a>
 </div>
 
 @section Scripts {

@@ -1,18 +1,10 @@
 ﻿@model Concessionaria.Dominio.Opcional
-
-@{
-    ViewBag.Title = "Editar";
-}
-
-<script src="~/Validacoes/OpcionalJS.js?d=@DateTime.Now.Ticks" type="text/javascript"></script>
+@{ Layout = null; }
 
 <h2>Editar Opcional</h2>
-
-
-@using (Html.BeginForm())
-{
+<div>
     @Html.AntiForgeryToken()
-    <input type="hidden" name="Opcid" value="@Model.Opcid"/>
+    <input type="hidden" name="Opcid" value="@Model.Opcid" />
 
     <div class="form-horizontal">
         <hr />
@@ -20,31 +12,28 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="Opcid">ID Opcional:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Opcid, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })                
+                @Html.EditorFor(model => model.Opcid, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
             </div>
         </div>
-
         <div class="form-group">
             <label class="control-label col-md-2" for="Opcdescr">Descrição:</label>
             <div class="col-md-4">
-                @Html.EditorFor(model => model.Opcdescr, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars('#ErroOpcdescr')" } })
+                @Html.EditorFor(model => model.Opcdescr, new { htmlAttributes = new { @class = "form-control", onkeypress = "Chars('#ErroOpcdescr')", onblur = "vlDescricao()" } })
                 @Html.ValidationMessageFor(model => model.Opcdescr, "", new { @class = "text-danger" })
                 <div id="ErroOpcdescr"></div>
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Salvar" class="btn btn-default" id ="submit" onclick="CadastroOpcional()"/>
+                <input type="button" value="Salvar" class="btn btn-default" id="submit" onclick="OpcionalJs.editar()" />
                 <div id="Msgopcional"></div>
-
             </div>
         </div>
     </div>
-}
+</div>
 
 <div>
-    @Html.ActionLink("Voltar", "Index")
+    <a href="#" onclick="OpcionalJs.voltarInicio()">Voltar</a>
 </div>
 
 @section Scripts {

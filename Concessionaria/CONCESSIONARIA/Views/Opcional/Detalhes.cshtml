@@ -1,11 +1,8 @@
 ﻿@model Concessionaria.Dominio.Opcional
 
-@{
-    ViewBag.Title = "Detalhes";
-}
+@{ Layout = null; }
 
 <h2>Detalhes do Opcional</h2>
-
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -28,6 +25,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Editar", new {  id = Model.Opcid  }) |
-    @Html.ActionLink("Voltar", "Index")
+    <a href="#" onclick="OpcionalJs.novaEdicao(@Model.Opcid)">Editar</a> |
+    <a href="#" onclick="OpcionalJs.voltarInicio()">Voltar</a>
 </p>
