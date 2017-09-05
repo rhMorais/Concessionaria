@@ -10,20 +10,12 @@
 
 <div>
 
-    @Html.ActionLink("TEste", "Teste") <br/>
-    <input type="submit" id="Excel" value="Gerar Excel"/> 
+    <h2>@Html.ActionLink("Gerar Excel dos Registros", "Excel")</h2> <br/>
+
 </div>
 
 <div id="local"></div>
 
-<script>    
-        $('#Excel').click(function () {
-            $.get("@Url.Action("GerarExcel", "Home")", null, function (data) {
-                console.log(data);
-                $('#local').successMessage("O download iniciará em instantes...", 5000);
-            });
-        })    
-</script>
 
    
 

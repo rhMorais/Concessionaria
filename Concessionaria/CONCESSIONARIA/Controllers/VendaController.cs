@@ -9,33 +9,33 @@ namespace CONCESSIONARIA.Controllers
 {
     public class VendaController : AuthController
     {
-        private VendaAplicacao appVenda;
-        private CarroAplicacao appCarro;
-        private ClienteAplicacao appCliente;
+        readonly VendaAplicacao _appVenda;
+        readonly CarroAplicacao _appCarro;
+        readonly ClienteAplicacao _appCliente;
+        readonly ExcelAplicacao _appExcel;
 
         public VendaController()
         {
-            appVenda = VendaAplicacaoConstrutor.VendaAplicacaoADO();
-            appCarro = CarroAplicacaoConstrutor.CarroAplicacao();
-            appCliente = ClienteAplicacaoConstrutor.ClienteAplicacao();
+            _appVenda = VendaAplicacaoConstrutor.VendaAplicacaoADO();
+            _appCarro = CarroAplicacaoConstrutor.CarroAplicacao();
+            _appCliente = ClienteAplicacaoConstrutor.ClienteAplicacao();
+            _appExcel = ExcelConstrutor.ExcelAplicacao();
         }
         public ActionResult Index()
         {
-            var listadeVendas = appVenda.ListarTodos();
+            var listadeVendas = _appVenda.ListarTodos();
             return View(listadeVendas);
         }
 
-        //public ActionResult GerarExcel()
-        //{
-        //    var vendas = appVenda.ListarTodos();
-        //    return View(vendas);
-        //    GerarExcel(vendas);
-        //}
+        public FileContentResult VendasExcel()
+        {
+            return new FileContentResult(_appExcel.GerarExcelVenda(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        }
 
         public ActionResult Cadastrar()
         {
-            var listaClientes = appCliente.ListarTodos();
-            var listaCarros = appCarro.ListarTodos();
+            var listaClientes = _appCliente.ListarTodos();
+            var listaCarros = _appCarro.ListarTodos();
             var clientesSelecionaveis = new List<SelectListItem>();
             var carrosSelecionaveis = new List<SelectListItem>();
 
@@ -65,14 +65,14 @@ namespace CONCESSIONARIA.Controllers
         public ActionResult Cadastrar(Venda venda)
         {
 
-            appVenda.Salvar(venda);
+            _appVenda.Salvar(venda);
             return RedirectToAction("Index");
 
         }
 
         public ActionResult Excluir(string id)
         {
-            var venda = appVenda.ListarPorId(id);
+            var venda = _appVenda.ListarPorId(id);
             if (venda == null)
             {
                 return HttpNotFound();
@@ -84,14 +84,14 @@ namespace CONCESSIONARIA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ExcluirConfirmados(string id)
         {
-            var venda = appVenda.ListarPorId(id);
-            appVenda.Excluir(venda);
+            var venda = _appVenda.ListarPorId(id);
+            _appVenda.Excluir(venda);
             return RedirectToAction("Index");
         }
 
         public ActionResult Detalhes(string id)
         {
-            var venda = appVenda.ListarPorId(id);
+            var venda = _appVenda.ListarPorId(id);
             if (venda == null)
             {
                 return HttpNotFound();

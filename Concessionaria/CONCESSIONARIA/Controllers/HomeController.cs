@@ -7,41 +7,22 @@ namespace CONCESSIONARIA.Controllers
 {
     public class HomeController : AuthController
     {
-        private ExcelAplicacao appExcel;
+        readonly ExcelAplicacao _appExcel;
 
         public HomeController()
         {
-            appExcel = ExcelConstrutor.ExcelAplicacao();            
+            _appExcel = ExcelConstrutor.ExcelAplicacao();            
         }
 
         public ActionResult Index()
         {           
             return View();
+        }       
+
+        public FileContentResult Excel()
+        {                     
+            return new FileContentResult(_appExcel.GerarExcel(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         }
-
-        public ActionResult Teste()
-        {
-            appExcel.GerarExcel();
-            return View("Index");
-        }
-        public string GerarExcel()
-        {                        
-            //appExcel.GerarExcel();
-            return "penis";
-        }
-
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Index(Login login)
-        //{
-        //    if (appLogin.AutenticarUsuario(login))
-        //    {
-        //        Session["UsuarioLogado"] = login.Logusuar;
-        //        return RedirectToAction("Index", "Venda");
-        //    }
-        //    return View(login);
-        //}
-
+      
     }
 }

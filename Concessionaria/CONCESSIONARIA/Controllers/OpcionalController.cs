@@ -2,6 +2,7 @@
 using Concessionaria.Aplicacao.Construtores;
 using Concessionaria.Dominio;
 using CONCESSIONARIA.ControleLogin;
+using System.Net;
 using System.Web.Mvc;
 
 namespace CONCESSIONARIA.Controllers
@@ -26,16 +27,30 @@ namespace CONCESSIONARIA.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        // public ActionResult Cadastrar(Opcional opcional)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        appOpcional.Salvar(opcional);
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(opcional);
+        //}
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-         public ActionResult Cadastrar(Opcional opcional)
+        public ActionResult CadastrarOpcional(Opcional opcional)
         {
             if (ModelState.IsValid)
             {
                 appOpcional.Salvar(opcional);
-                return RedirectToAction("Index");
+                return Content("Cadastro concluído.");
             }
-            return View(opcional);
+
+            Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            Response.TrySkipIisCustomErrors = true;
+            return Content("Erro no cadastro.");
         }
 
         public ActionResult Editar(string id)
@@ -49,16 +64,27 @@ namespace CONCESSIONARIA.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Editar(Opcional opcional)
+        public ActionResult EditarOpcional(Opcional opcional)
         {
             if (ModelState.IsValid)
             {
                 appOpcional.Salvar(opcional);
-                return RedirectToAction("Index");
+                return Content("Edição concluída");
             }
-            return View(opcional);
+            return Content("Erro na edição");
         }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Editar(Opcional opcional)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        appOpcional.Salvar(opcional);
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(opcional);
+        //}
 
         public ActionResult Detalhes(string id)
         {

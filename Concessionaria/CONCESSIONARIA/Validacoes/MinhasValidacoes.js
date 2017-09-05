@@ -20,8 +20,7 @@ function Nums(string) {
 
 function NumsNChars(string) {
     var evt = window.event;
-    var tec = evt.keyCode;
-    console.log(tec);
+    var tec = evt.keyCode;    
     if (!((tec == 44 || tec == 46) || (tec == 32) || (tec > 47 && tec < 58) ||
         (tec > 64 && tec < 91) || (tec > 96 && tec < 123))) {        
         evt.preventDefault();

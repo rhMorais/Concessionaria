@@ -245,6 +245,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Validacoes\OpcionalJS.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -295,6 +296,7 @@
     <Content Include="Views\Venda\Detalhes.cshtml" />
     <Content Include="Views\EfetuarLogin\Index.cshtml" />
     <Content Include="Views\EfetuarLogin\Logoff.cshtml" />
+    <Content Include="Views\Opcional\Listar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

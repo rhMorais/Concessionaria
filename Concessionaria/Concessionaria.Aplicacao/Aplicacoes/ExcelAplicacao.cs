@@ -12,10 +12,14 @@ namespace Concessionaria.Aplicacao.Aplicacoes
             _repositorio = repo;
         }
 
-        public void GerarExcel()
+        public byte[] GerarExcel()
         {
-            _repositorio.GerarExcel();
+            return _repositorio.GerarExcel();
         }
-    
+
+        public byte[] GerarExcelVenda()
+        {
+            return _repositorio.GerarExcelVenda();
+        }
     }
 }
